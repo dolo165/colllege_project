@@ -1,5 +1,7 @@
 import React from 'react';
-// import Apple from './src/assets/appleIcon.png';
+import facebook from '../assets/facebookIcon.png';
+import apple from '../assets/appleIcon.png';
+import google from '../assets/googleIcon.png';
 
 const Authorization = (props) => {
     return (
@@ -14,16 +16,17 @@ const Authorization = (props) => {
                     <label htmlFor="password"></label>
                     <input type="password" name="password" placeholder="Введите пароль"/>
                 </div>
-                {/* <div className="login">
-                    <img src={Apple}alt="" />
-                </div> */}
-                {/* не смог добавить картинки */}
+                <div className="login">
+                    <img src={google}alt="" width={50} height={50}/>
+                    <img src={apple}alt=""width={38} height={44} />
+                    <img src={facebook}alt="" width={50} height={50}/>
+                </div>
                 <div className="form_container">
                     <label htmlFor="login"></label>
                     <input className="input_login" type="submit" value="Войти"/>
                 </div>
                 <div className="form_container">
-                    <p className='password'>Забыли пароль?</p>
+                    <p className='p'>Забыли пароль?</p>
                 </div>
             </form>
         </div>

@@ -1,8 +1,8 @@
 import Authorization from "./auth/Authorization";
 import Registration from "./auth/Registration";
-import PasswordRecovery from "./auth/password-recovery/Email"
-import Code from "./auth/password-recovery/Code";
-import CreateNewPsw from "./auth/password-recovery/CreateNewPsw";
+import PasswordRecovery from "./auth/Email"
+import Code from "./auth/Code";
+import CreateNewPsw from "./auth/CreateNewPsw";
 
 const Modal = (props) => {
     const modal = props?.modal?.props
