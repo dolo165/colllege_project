@@ -6,14 +6,15 @@ const CreateNewPsw = (props) => {
             <div className="title-modal">Создайте новый пароль</div>
             <form>
                 <div className="form_container">
-                    <input type="text" name="email" placeholder="Введите пароль"/>
+                    <input type="password" name="email" placeholder="Введите пароль"/>
                 </div>
                 <div className="form_container">
-                    <input type="text" name="email" placeholder="Подтвердите паролю пароль"/>
+                    <input type="password" name="email" placeholder="Подтвердите паролю пароль"/>
                 </div>
                 <div className="form_container">
                     {/* <img src={Rectangle} alt="" />
                     <p className="password">Запомнить меня</p> */}
+                    {/* //не смог добавть картинки */}
                 </div>
                 <div className="form_container">
                     <input className='input_login' type="submit" name="submit" value="Отправить"/>

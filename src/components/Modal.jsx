@@ -1,6 +1,8 @@
 import Authorization from "./auth/Authorization";
 import Registration from "./auth/Registration";
 import PasswordRecovery from "./auth/password-recovery/Email"
+import Code from "./auth/password-recovery/Code";
+import CreateNewPsw from "./auth/password-recovery/CreateNewPsw";
 
 const Modal = (props) => {
     const modal = props?.modal?.props
@@ -13,6 +15,10 @@ const Modal = (props) => {
                 return <Registration />;
             case 'passwordrecovery':
                 return <PasswordRecovery />;
+            case 'code':
+                return <Code />;
+            case 'createnewpsw':
+                return <CreateNewPsw />;
             default:
                 return <Authorization />;
         }

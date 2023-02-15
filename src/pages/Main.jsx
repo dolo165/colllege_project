@@ -47,7 +47,12 @@ const Main = (props) => {
             <div onClick={() => openModal('passwordrecovery')}>
                 <Button text='Восстановление пароля' />
             </div>
-            
+            <div onClick={() => openModal('code')}>
+                <Button text='Введите проверочный код' />
+            </div>
+            <div onClick={() => openModal('createnewpsw')}>
+                <Button text='Создайть новый пароль' />
+            </div>
             <Modal modal={modalState}/>
         </div>
     );

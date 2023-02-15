@@ -17,6 +17,7 @@ const Authorization = (props) => {
                 {/* <div className="login">
                     <img src={Apple}alt="" />
                 </div> */}
+                {/* не смог добавить картинки */}
                 <div className="form_container">
                     <label htmlFor="login"></label>
                     <input className="input_login" type="submit" value="Войти"/>
