@@ -8,10 +8,7 @@ const Authorization = (props) => {
         <div className="form-modal">
             <div className="title-modal">Вход в личный кабинет</div>
             <form>
-                <div className="form_container">
-                    <label htmlFor="login"></label>
-                    <input type="text" name="login" placeholder="Email"/>
-                </div>
+                
                 <div className="form_container">
                     <label htmlFor="password"></label>
                     <input type="password" name="password" placeholder="Введите пароль"/>
