@@ -214,3 +214,29 @@ h1{
     font-weight: 500;
     font-size: 15px;
 }
+
+
+.button-green:hover {
+    background-color: #3e8e41;
+}
+.form-input {
+
+   
+    margin: 25px 75px;
+}
+.form-input label, .form-input span {
+    display: block;
+}
+.modal-form .error {
+    color: red;
+}
+.form-modal {
+    width: 100%;
+}
+.form-modal input {
+   
+    width: 324px;
+    display: flex;
+    align-items: center;
+    
+}

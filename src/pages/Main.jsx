@@ -7,6 +7,7 @@ const Main = (props) => {
         active: false,
         content: 'registration'
       });
+      
 
     function reducer(state, action) {
         switch (action.type) {
