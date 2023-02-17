@@ -9,7 +9,7 @@ const Authorization = (props) => {
             <div className="title-modal">Вход в личный кабинет</div>
             <form>
                 
-                <div className="form_container">
+                <div className="formAnother_container">
                     <label htmlFor="password"></label>
                     <input type="password" name="password" placeholder="Введите пароль"/>
                 </div>
@@ -18,12 +18,12 @@ const Authorization = (props) => {
                     <img src={apple}alt=""width={38} height={44} />
                     <img src={facebook}alt="" width={50} height={50}/>
                 </div>
-                <div className="form_container">
+                <div className="formAnother_container">
                     <label htmlFor="login"></label>
                     <input className="input_login" type="submit" value="Войти"/>
                 </div>
-                <div className="form_container">
-                    <p className='p'>Забыли пароль?</p>
+                <div className="formAnother_container">
+                    <a href='/' className='p'>Забыли пароль?</a>
                 </div>
             </form>
         </div>

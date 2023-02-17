@@ -20,6 +20,7 @@ footer{
     padding-top: 66px;
 }
 .login{
+    padding: 10px;
     gap: 10px;
     margin: 0 auto;
     width: 200px;
@@ -114,16 +115,33 @@ form{
     margin: 0 auto;
     padding: 0;
 }
+.upper_form{
+    margin: 0 auto;
+    padding-left: 55px;
+}
+form{
+    margin: 0 auto;
+    padding: 0;
+}
 .form-modal{
     margin: 0 auto;
     padding: 10px;
 }
 .form_container{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     margin: 0 auto;
     padding: 10px;
+    justify-content: center;
+    width: 100%;
+    padding-left: 40px;
+}
+.formAnother_container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
     width: 100%;
 }
 .form_containers{
@@ -132,7 +150,15 @@ form{
     padding: 10px;
     align-items: center;
     justify-content: center;
-
+    gap: 10px;
+    padding-left: 40px;
+}
+.formAnother_containers{
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 .formOne_container{
@@ -140,6 +166,15 @@ form{
     margin: 0 auto;
     padding: 10px;
     align-items: center;
+    gap: 10px;
+    padding-left: 40px;
+}
+.formSec_containers{
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    align-items: center;
+
     gap: 10px;
 }
 .position_form{
@@ -157,6 +192,8 @@ form{
     color: #9B8E8E;
     font-weight: 400;
     font-size: 13px;
+    display: flex;
+    /* justify-content: center; */
 }
 input.login_name { 
     background-repeat:no-repeat;
@@ -215,6 +252,10 @@ h1{
     color: #A89898;
     font-weight: 500;
     font-size: 15px;
+}
+.p :hover,
+.p ::after  {
+    color: #002951;
 }
 
 .modal-form .error {

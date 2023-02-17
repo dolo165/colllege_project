@@ -120,7 +120,6 @@ const Registration = (props) => {
                     <p className="quest_p">Запомнить меня</p>
                 </div>
                 <div className="form_container">
-                    <label htmlFor="submit"></label>
                     <input className="input_login" type="submit" name="submit" value="Отправить"/>
                 </div>
             </form>
