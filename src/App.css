@@ -100,7 +100,7 @@ footer{
 a{
     color: #fff;
     text-decoration: none;
-    margin: 20px;
+    gap: 20px;
     font-weight: 500;
 }
 a ::after,
@@ -146,7 +146,7 @@ form{
 }
 .form_containers{
     display: flex;
-    margin: 0 auto;
+    margin: 0px, -50px, 0px, 0px;
     padding: 10px;
     align-items: center;
     justify-content: center;
@@ -200,7 +200,6 @@ input.login_name {
     background-attachment:scroll;
     background-position: right;
 }
-/* Иконка в Адрес эл.почты */
 input.login_name  { 
     background-image:url('components/assets/eye.png')
 }
@@ -219,13 +218,14 @@ input ,
     gap :10px;
 }
 .input_login{
-    width: 324px;
+    width: 334px;
     height: 45px;
     background-color: #4D4D4D;
     font-weight: 600;
     color: #fff;
     line-height: 17.61px;
     font-size: 15px;
+    cursor: pointer;
 } 
 input::placeholder {
     line-height: 17.61px;
@@ -260,5 +260,13 @@ h1{
 
 .modal-form .error {
     color: red;
+    display: flex;
 }
-
+.coco{
+    background-color: #4D4D4D;
+    width: 23px;
+    height: 23px;
+}
+img{
+    cursor: pointer;
+}

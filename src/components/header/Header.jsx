@@ -4,8 +4,6 @@ const Header = (Props) => {
         <header>
             <nav>
                 <a href="/">Главная</a>
-                <a href="/">Каталог</a>
-                <a href="/">Дом</a>
             </nav>  
         </header>
     );

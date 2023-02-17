@@ -113,12 +113,8 @@ const Registration = (props) => {
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
                 </div>
                 <div className="formOne_container">
-
                     <input type="checkbox" className="coco"></input>
-  
                     <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и распродажах</p>
-                  
-                
                 </div>
                 <div className="formOne_container">
                 <input type="checkbox" className="coco"></input>
