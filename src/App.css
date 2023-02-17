@@ -49,6 +49,7 @@ footer{
 }
 .modal-container {
     width: 500px;
+
     height: 750px;
     z-index: 4;
     background-color: white;
@@ -262,3 +263,53 @@ h1{
     color: red;
 }
 
+
+
+@media screen and (min-width: 100px) and (max-width: 465px) {
+
+
+
+
+header{
+  
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 290%;
+}
+
+.center-flex {
+
+    width: 295%;
+   
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+    
+}
+
+
+
+
+footer{
+    width: 290%;
+    margin-top: 1600px;
+}
+
+.modal-container{
+    margin-left: 200%;
+    
+    
+}
+
+.blackout {
+
+     margin-left: 200%;
+
+ 
+}
+
+
+
+}
