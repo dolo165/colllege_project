@@ -121,8 +121,9 @@ form{
 .form_container{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    padding: 10px;
+   margin: 15px 75px; 
+
+    
 }
 .form_containers{
     display: flex;
@@ -216,27 +217,15 @@ h1{
 }
 
 
-.button-green:hover {
-    background-color: #3e8e41;
-}
 .form-input {
 
    
-    margin: 25px 75px;
+    margin: 15px 75px;
 }
-.form-input label, .form-input span {
-    display: block;
-}
+
 .modal-form .error {
     color: red;
 }
 .form-modal {
     width: 100%;
-}
-.form-modal input {
-   
-    width: 324px;
-    display: flex;
-    align-items: center;
-    
 }
