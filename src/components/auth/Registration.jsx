@@ -11,6 +11,7 @@ const Registration = (props) => {
     }
 
     console.log(errors)
+   
 
     return (
         <div className="form-modal">
@@ -91,7 +92,7 @@ const Registration = (props) => {
                           })}
                           
                     />
-                    <img src={closeEye} alt="" width={25} height = {25}/>
+                    {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
                 <div className="form_containers">
@@ -108,15 +109,15 @@ const Registration = (props) => {
                             required: 'Параметр обязателен'
                         })}
                     />
-                     <img src={closeEye} alt="" width={25} height = {25}/>
+                     {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
                 </div>
                 <div className="formOne_container">
-                    <img src={rectangle} alt=""  width={23} height={23}/>
+                    <input type="checkbox" className="coco"></input>
                     <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и распродажах</p>
                 </div>
                 <div className="formOne_container">
-                    <img src={rectangle} alt=""  width={23} height={23}/>
+                <input type="checkbox" className="coco"></input>
                     <p className="quest_p">Запомнить меня</p>
                 </div>
                 <div className="form_container">
@@ -127,5 +128,7 @@ const Registration = (props) => {
     )
 
 };
+
+
 
 export default Registration;

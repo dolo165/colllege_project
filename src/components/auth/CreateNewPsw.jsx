@@ -19,7 +19,7 @@ const CreateNewPsw = (props) => {
                         <img src={closeEye} alt="" width={25} height = {25}/>
                     </div>
                     <div className="formSec_containers">
-                        <img src={rectangle} alt=""  width={23} height={23}/>
+                    <input type="checkbox" className="coco"></input>
                         <p className="password">Запомнить меня</p>
                     </div>
                 </div>
