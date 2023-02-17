@@ -17,9 +17,7 @@ const Registration = (props) => {
             <div className="title-modal">Регистрация</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form_container">
-                    
-              
-                <input
+                <input 
                         type="text" 
                         name="firstName" 
                         placeholder="Введите ваше имя" 
@@ -43,7 +41,7 @@ const Registration = (props) => {
                    
                 </div>
                 
-                <div className="form-input">
+                <div className="form_container">
                    
                     <input 
                         type="text" 
@@ -60,7 +58,7 @@ const Registration = (props) => {
                     />
                     {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
                 </div>
-                <div className="form-input">
+                <div className="form_container">
                     
                     <input 
                         type="text" 
@@ -78,9 +76,9 @@ const Registration = (props) => {
                     />
                     {errors.login && <span className="error" role="alert">{errors.login?.message}</span>}
                 </div>
-                <div className="form-input">
+                <div className="form_containers">
                     
-                    <input 
+                    <input className="login_name"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"
@@ -96,9 +94,8 @@ const Registration = (props) => {
                     <img src={closeEye} alt="" width={25} height = {25}/>
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
-                <div className="form-input">
-                   
-                    <input 
+                <div className="form_containers">
+                    <input className="login_name" 
                         type="password" 
                         name="cpassword" 
                         placeholder="Повторите пароль"

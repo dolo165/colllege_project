@@ -23,7 +23,7 @@ const CreateNewPsw = (props) => {
                         <p className="password">Запомнить меня</p>
                     </div>
                 </div>
-                <div className="form_container">
+                <div className="form_containers">
                     <input className='input_login' type="submit" name="submit" value="Отправить"/>
                 </div>
             </form>
