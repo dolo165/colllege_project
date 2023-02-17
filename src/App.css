@@ -130,7 +130,7 @@ form{
 .form_container{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0px, -50px, 0px , 0px;
     padding: 10px;
     justify-content: center;
     width: 100%;
@@ -146,11 +146,11 @@ form{
 }
 .form_containers{
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
+    margin: 0px, -50px, 0px , 0px;
     padding: 10px;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
+    width: 100%;
     padding-left: 40px;
 }
 .formAnother_containers{
@@ -261,4 +261,13 @@ h1{
 .modal-form .error {
     color: red;
 }
+
+.coco{
+    width: 23px;
+    height: 23px;
+}
+
+
+
+
 
