@@ -146,16 +146,13 @@ form{
 }
 .form_containers{
     display: flex;
-<<<<<<< HEAD
-    margin: 0px, -50px, 0px, 0px;
-=======
     flex-direction: column;
     margin: 0px, -50px, 0px , 0px;
->>>>>>> 7e56c9c35c5921bcfb624da18f632865b39d0685
     padding: 10px;
     justify-content: center;
     width: 100%;
     padding-left: 40px;
+    gap: 10px;
 }
 .formAnother_containers{
     display: flex;
@@ -205,7 +202,7 @@ input.login_name {
     background-position: right;
 }
 input.login_name  { 
-    background-image:url('components/assets/eye.png')
+    background-image:url('components/assets/eye.png');
 }
 input ,
 .close{
@@ -266,7 +263,6 @@ h1{
     color: red;
     display: flex;
 }
-<<<<<<< HEAD
 .coco{
     background-color: #4D4D4D;
     width: 23px;
@@ -275,7 +271,6 @@ h1{
 img{
     cursor: pointer;
 }
-=======
 
 .coco{
     width: 23px;
@@ -283,7 +278,3 @@ img{
 }
 
 
-
-
-
->>>>>>> 7e56c9c35c5921bcfb624da18f632865b39d0685

@@ -92,7 +92,7 @@ const Registration = (props) => {
                           })}
                           
                     />
-                    <img src={closeEye} alt="" width={25} height = {25}/>
+                    {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
                 <div className="form_containers">
@@ -109,7 +109,7 @@ const Registration = (props) => {
                             required: 'Параметр обязателен'
                         })}
                     />
-                     <img src={closeEye} alt="" width={25} height = {25}/>
+                     {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
                 </div>
                 <div className="formOne_container">
