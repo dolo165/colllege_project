@@ -7,7 +7,7 @@ const Registration = (props) => {
    
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = async data => {
-        console.log(data)
+        console.log(data);
     }
 
     console.log(errors)
