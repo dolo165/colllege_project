@@ -52,7 +52,8 @@ footer{
 
     height: 750px;
     z-index: 4;
-    background-color: white;
+    background-image: url(./assets/back.png);
+    background-color: whitesmoke;
     opacity: 1;
     display: flex;
     justify-content: center;
@@ -329,3 +330,11 @@ footer{
 }
 
 
+.exit{
+    display: flex;
+    justify-content: end;
+    margin-right: 100px;
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
