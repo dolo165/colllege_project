@@ -9,7 +9,11 @@ export default function Email (props) {
             <div className="title-modal">Восстановления пароля</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form_container">
-                <input type="text" name="email" placeholder="Введите Email"  {...register("email", {
+                <input className="input_email"
+                 type="text" 
+                 name="email" 
+                 placeholder="Введите почту"  
+                 {...register("email", {
                             required: "Параметр обязателен",
                             pattern: {
                               value: /\S+@\S+\.\S+/,

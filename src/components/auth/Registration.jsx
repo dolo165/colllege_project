@@ -1,14 +1,25 @@
 
 import rectangle from "../assets/Rectangle 108.png"
 import openEye from "../assets/eye.png"
-import closeEye from "../assets/глазик.png"
 import {useForm} from "react-hook-form";
+import { createUserWithEmailAndPassword  } from 'firebase/auth';
+import { auth, database } from '../../app/firebase'
+import { doc, setDoc } from "firebase/firestore";
+
 const Registration = (props) => {
-   
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = async data => {
-        console.log(data);
+        try {
+            await createUserWithEmailAndPassword(auth, data.email, data.password)
+            delete data.password;
+            delete data.cpassword;
+            await setDoc(doc(database, "users", data.email), data);
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+
 
     console.log(errors)
    
@@ -18,10 +29,10 @@ const Registration = (props) => {
             <div className="title-modal">Регистрация</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form_container">
-                <input 
+                    <input className="input_name"
                         type="text" 
                         name="firstName" 
-                        placeholder="Введите ваше имя" 
+                        placeholder="Имя" 
                         
                         {...register('firstName', {
                             required: "Параметр обязателен", 
@@ -44,7 +55,7 @@ const Registration = (props) => {
                 
                 <div className="form_container">
                    
-                    <input 
+                    <input className="input_email  "
                         type="text" 
                         name="email" 
                         placeholder="Введите почту"
@@ -59,27 +70,9 @@ const Registration = (props) => {
                     />
                     {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
                 </div>
-                <div className="form_container">
-                    
-                    <input 
-                        type="text" 
-                        name="login" 
-                        placeholder="Введите логин"
-                        {...register("login", {
-                            required: "Параметр обязателен",
-                            pattern: {
-                              value: /[A-Za-z]/,
-                              message: "Логин должен содержать только латинские символы"
-                            },
-                            maxLength: 20, 
-                            minLength: 3
-                        })}
-                    />
-                    {errors.login && <span className="error" role="alert">{errors.login?.message}</span>}
-                </div>
                 <div className="form_containers">
                     
-                    <input className="login_name"
+                    <input className="input_password"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"
@@ -96,10 +89,10 @@ const Registration = (props) => {
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
                 <div className="form_containers">
-                    <input className="login_name" 
+                    <input className="input_password" 
                         type="password" 
                         name="cpassword" 
-                        placeholder="Повторите пароль"
+                        placeholder="Подтвердите пароль"
                         {...register("cpassword", {
                             validate: (value) => {
                                 if (watch('password') != value) {
@@ -122,7 +115,7 @@ const Registration = (props) => {
                 </div>
                 <div className="form_container">
                     <input className="input_login" type="submit" name="submit" value="Отправить"/>
-                </div>
+                </div>  
             </form>
         </div>
     )
@@ -131,4 +124,4 @@ const Registration = (props) => {
 
 
 
-export default Registration;
+export default Registration

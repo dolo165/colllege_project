@@ -9,7 +9,7 @@ export default function Code (props) {
             <div className="title-modal">Введите код</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form_container">
-                <input className="login_name"
+                    <input className="input_password"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"

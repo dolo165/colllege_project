@@ -2,39 +2,96 @@ import Email from './Email'
 import facebook from '../assets/facebookIcon.png';
 import apple from '../assets/appleIcon.png';
 import google from '../assets/googleIcon.png';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Registration from './Registration';
+import {auth, provider} from '../../app/firebase'
+import {signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from "react-hook-form";
+import React from 'react';
+import { useState } from 'react';
 
-export default function Authorization (props) {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = async data =>{ console.log(data);}
-    console.log(errors)
+// export default function Authorization (props) {
+    // const { register, handleSubmit, formState: { errors } } = useForm();
+    // const onSubmit = async data =>{ console.log(data);}
+    // console.log(errors)
+    const Authorization = (props) => {
+        const [login, setLogin] = useState('')
+        const [password, setPassword] = useState('')
+        const [error, setError] = useState(false)
+    
+        async function signInWithGoogle() {
+            try {
+                await signInWithPopup(auth, provider)
+                props.closeModal({ type: "modal", active:"false"})
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+        async function signIn(e) {
+            e.preventDefault()
+            try {
+                setError(false)
+                await signInWithEmailAndPassword(auth, login, password)
+            } catch(error) {
+                setError(true)
+            }
+        }
+    
+        function inputLogin(e) {
+            setLogin(e.target.value)
+        }
+    
+        function inputPassword(e) {
+            setPassword(e.target.value)
+        }
+    
     return (
         <div className="form-modal">
-               <div className="title-modal">Введите код</div>
-            <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
+            <div className="title-modal">Авторизация</div>
+            <div className='error' style={{
+                display: (error) ? 'block' : 'none',
+                color: 'red'
+            }}> 
+                Такого пользователя не существует, проверьте введеный логин и пароль 
+            </div>
+            <form onSubmit={signIn}>
+            <div className="form_container">
+                   <input className='input_email'
+                       type="text" 
+                       name="email" 
+                       placeholder="Email"
+                    //    {...register("email", {
+                    //        required: "Параметр обязателен",
+                    //        pattern: {
+                    //          value: /\S+@\S+\.\S+/,
+                    //          message: "Ваш email не подходит под нужный формат"
+                    //        }
+                    //    })}
+                    onChange={inputLogin}
+                   />
+                   {/* {errors.email && <span className="error" role="alert">{errors.email?.message}</span>} */}
+               </div>
                 <div className="form_container">
-                <input className="login_name"
+                <input className="input_password"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"
-                        {...register("password", {
-                            required: "Параметр обязателен",
-                            minLength: {
-                              value: 7,
-                              message: "Минимальная длина кода 7 символов"
-                            }
-                          })}
-                          
+                        // {...register("password", {
+                        //     required: "Параметр обязателен",
+                        //     minLength: {
+                        //       value: 7,
+                        //       message: "Минимальная длина кода 7 символов"
+                        //     }
+                        //   })}
+                        onChange={inputPassword} 
                     />
                   
 
-                {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
+                {/* {errors.password && <span className="error" role="alert">{errors.password?.message}</span>} */}
                 </div>
                 <div className="login">
-                    <a href="https://accounts.google.com/v3/signin/identifier?dsh=S-888600229%3A1676644362498411&continue=https%3A%2F%2Fwww.google.com%3Fhl%3Dru&ec=GAlA8wE&hl=ru&flowName=GlifWebSignIn&flowEntry=AddSession"><img src={google}alt="" width={50} height={50}/></a>
-                    <a href="https://www.icloud.com/?id=123"><img src={apple}alt=""width={38} height={44} /></a>
+                    <button onClick={signInWithGoogle} style={{backgroundColor : 'transparent',border:"none"}}><img src={google}alt=""width={50} height={50}/></button>
+                    <img src={apple}alt="" width={38} height={44}/>
+                    
                     <a href="https://m.facebook.com/login/?locale2=ru_RU"><img src={facebook}alt="" width={50} height={50}/></a>
                 </div>
                 <div className="form_container">
@@ -48,4 +105,5 @@ export default function Authorization (props) {
     )
 
 };
-
+// }
+export default Authorization;

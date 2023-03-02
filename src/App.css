@@ -198,19 +198,36 @@ form{
     display: flex;
     /* justify-content: center; */
 }
-input.login_name { 
+
+.input_name{
     background-repeat:no-repeat;
+    background-image:url('components/assets/person_filled.png');
     background-attachment:scroll;
-    background-position: right;
+    background-position:0 center;
+    gap: 10px;
+    padding-left: 30px;
 }
-input.login_name  { 
-    background-image:url('components/assets/eye.png');
+.input_email{
+    background-repeat:no-repeat;
+    background-image:url('components/assets/mail.png');
+    background-attachment:scroll;
+    background-position:0 center;
+    gap: 10px;
+    padding-left: 30px;
+}
+.input_password{
+    background-repeat:no-repeat;
+    background-image:url('components/assets/lock.png');
+    background-attachment:scroll;
+    background-position:0 center;
+    gap: 10px;
+    padding-left: 30px;
 }
 input ,
 .close{
     color: #A89D9D;
     font-size: 25px;
-    width: 324px;
+    width: 294px;
     height: 45px;
     background-color: #fff;
     font-size: 15px;
@@ -219,6 +236,7 @@ input ,
     padding :6px, 10px, 6px, 10px;
     line-height: 17.61px;
     gap :10px;
+    background-color: transparent;
 }
 .input_login{
     width: 334px;
