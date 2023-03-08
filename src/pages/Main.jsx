@@ -2,6 +2,7 @@ import Button from "../components/ui/Button";
 import {useReducer} from 'react'
 import Modal from "../components/Modal";
 import { useAuthState } from "react-firebase-hooks/auth"
+import navigate from '../components/assets/navigate_next.png'
 import { auth } from '../app/firebase'
 const Main = (props) => {
     const [modal, dispatch] = useReducer(reducer, {
@@ -54,7 +55,12 @@ const Main = (props) => {
     } else {
     return (
         <div className="container center-flex">
-            <h1>Главная страница</h1>
+            <h1>Пришло время <br /> позаботиться <br /> о себе</h1>
+            <div className="main_direct">            
+                <h3>Перейти в каталог</h3>
+                <img src={navigate} alt="" width={50} height={50}/>
+            </div>
+            {/* <h1>Главная страница</h1>
             <div onClick={() => openModal('authorization')}>
                 <Button text='Авторизация' />
             </div>
@@ -70,7 +76,7 @@ const Main = (props) => {
             <div onClick={() => openModal('createnewpsw')}>
                 <Button text='Создайть новый пароль' />
             </div>
-            <Modal modal={modalState}/>
+            <Modal modal={modalState}/> */}
         </div>
     );
 };
