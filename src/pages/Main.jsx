@@ -40,8 +40,9 @@ const Main = (props) => {
     const signOut = () => {
         auth.signOut();
     };
-
-    if (user) {
+    if (user){
+    
+        if (user.emailVerified) {
         return (
             <div className="container center-flex">
                 Главная страница
@@ -52,7 +53,19 @@ const Main = (props) => {
                 </div>
             </div>
         )
-    } else {
+    } else 
+        return (
+            <div className="container center-flex">
+                Главная страница
+                <div>Пожалуйста потвердите почту умоляю{user.displayName}</div>
+                <div onClick={signOut}>
+                    <Button text='Выйти с аккаунта' />
+                </div>
+            </div>
+        )
+
+    } else  
+
     return (
         <div className="container center-flex">
             <h1>Пришло время <br /> позаботиться <br /> о себе</h1>
@@ -60,7 +73,7 @@ const Main = (props) => {
                 <h3>Перейти в каталог</h3>
                 <img src={navigate} alt="" width={50} height={50}/>
             </div>
-            {/* <h1>Главная страница</h1>
+             {/* <h1>Главная страница</h1> */}
             <div onClick={() => openModal('authorization')}>
                 <Button text='Авторизация' />
             </div>
@@ -76,9 +89,11 @@ const Main = (props) => {
             <div onClick={() => openModal('createnewpsw')}>
                 <Button text='Создайть новый пароль' />
             </div>
-            <Modal modal={modalState}/> */}
+            <Modal modal={modalState}/>
         </div>
+
     );
 };
-}
+
+
 export default Main;

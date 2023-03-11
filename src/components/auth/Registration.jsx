@@ -2,7 +2,7 @@
 import rectangle from "../assets/Rectangle 108.png"
 import openEye from "../assets/eye.png"
 import {useForm} from "react-hook-form";
-import { createUserWithEmailAndPassword  } from 'firebase/auth';
+import { createUserWithEmailAndPassword,sendEmailVerification     } from 'firebase/auth';
 import { auth, database } from '../../app/firebase'
 import { doc, setDoc } from "firebase/firestore";
 
@@ -10,7 +10,8 @@ const Registration = (props) => {
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = async data => {
         try {
-            await createUserWithEmailAndPassword(auth, data.email, data.password)
+            const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
+            sendEmailVerification(userCredential.user)
             delete data.password;
             delete data.cpassword;
             await setDoc(doc(database, "users", data.email), data);
