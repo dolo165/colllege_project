@@ -54,7 +54,7 @@ import { useState } from 'react';
                 Такого пользователя не существует, проверьте введеный логин и пароль 
             </div>
             <form onSubmit={signIn}>
-            <div className="form_container">
+            <div className="form_containery">
                    <input className='input_email'
                        type="text" 
                        name="email" 
@@ -70,7 +70,7 @@ import { useState } from 'react';
                    />
                    {/* {errors.email && <span className="error" role="alert">{errors.email?.message}</span>} */}
                </div>
-                <div className="form_container">
+                <div className="form_containery">
                 <input className="input_password"
                         type="password" 
                         name="password" 
@@ -94,11 +94,11 @@ import { useState } from 'react';
                     
                     <a href="https://m.facebook.com/login/?locale2=ru_RU"><img src={facebook}alt="" width={50} height={50}/></a>
                 </div>
-                <div className="form_container">
+                <div className="form_containery">
                     <input className="input_login" type="submit" value="Войти"/>
                 </div>
                 <div className="formAnother_container">
-                    <a href='/email'className='p'>Забыли пароль?</a>
+                    <a href=''className='p'>Забыли пароль?</a>
                 </div>
             </form>
         </div>

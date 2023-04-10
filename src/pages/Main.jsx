@@ -1,32 +1,16 @@
 import Button from "../components/ui/Button";
-import {useReducer} from 'react'
 import Modal from "../components/Modal";
 import { useAuthState } from "react-firebase-hooks/auth"
 import navigate from '../components/assets/navigate_next.png'
 import { auth } from '../app/firebase'
+import person from '../components/assets/person.png'
+import {useContext} from 'react'
+import {ModalContext} from '../App'
+import { Link } from 'react-router-dom'
+
 const Main = (props) => {
-    const [modal, dispatch] = useReducer(reducer, {
-        active: false,
-        content: 'registration'
-      });
-      
-      const [user, loading, error] = useAuthState(auth);
-    function reducer(state, action) {
-        switch (action.type) {
-            case 'modal':
-                return {
-                    ...state,
-                    active: action.modal
-                };
-            case 'content':
-                return {
-                    ...state,
-                    content: action.content
-                };
-            default:
-                return state
-        }
-    }
+    const [user, loading, error] = useAuthState(auth);
+    const [modal, dispatch] = useContext(ModalContext)
 
     const modalState = {
         props: modal,
@@ -37,6 +21,7 @@ const Main = (props) => {
         await dispatch({type: 'content', content: content})
         await dispatch({type: 'modal', modal: true})
     }
+    
     const signOut = () => {
         auth.signOut();
     };
@@ -68,26 +53,12 @@ const Main = (props) => {
 
     return (
         <div className="container center-flex">
-            <h1>Пришло время <br /> позаботиться <br /> о себе</h1>
-            <div className="main_direct">            
-                <h3>Перейти в каталог</h3>
-                <img src={navigate} alt="" width={50} height={50}/>
-            </div>
-             {/* <h1>Главная страница</h1> */}
-            <div onClick={() => openModal('authorization')}>
-                <Button text='Авторизация' />
-            </div>
-            <div  onClick={() => openModal('registration')}>
-                <Button text='Регистрация' />
-            </div>
-            <div onClick={() => openModal('passwordrecovery')}>
-                <Button text='Восстановление пароля' />
-            </div>
-            <div onClick={() => openModal('code')}>
-                <Button text='Введите проверочный код' />
-            </div>
-            <div onClick={() => openModal('createnewpsw')}>
-                <Button text='Создайть новый пароль' />
+            <h1 className="main_h1">Пришло время <br /> позаботиться <br /> о себе</h1>
+            <div className="main_direct">      
+                <Link className="main_direct" to="/catalog">
+                    <a className='h3' href="">Перейти в каталог</a> 
+                    <img src={navigate} alt="" width={50} height={50}/>
+                </Link>      
             </div>
             <Modal modal={modalState}/>
         </div>
