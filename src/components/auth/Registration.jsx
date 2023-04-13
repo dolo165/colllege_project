@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import rectangle from "../assets/Rectangle 108.png"
 import openEye from "../assets/eye.png"
 import {useForm} from "react-hook-form";
@@ -20,7 +20,7 @@ const Registration = (props) => {
         }
     }
 
-
+    
 
     console.log(errors)
    
@@ -116,6 +116,10 @@ const Registration = (props) => {
                 </div>
                 <div className="form_container">
                     <input className="input_login" type="submit" name="submit" value="Отправить"/>
+                </div>
+                <div className="formAnother_container">
+                    <Link to="/authorization" className='p' >Войти</Link>
+                    {/* <Link  to="/catalog"><a className='header_li' href="">Контакты</a></Link> */}
                 </div>  
             </form>
         </div>

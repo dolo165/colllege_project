@@ -4,9 +4,9 @@ import Catalog from '../pages/Catalog'
 import ProductPage from '../pages/ProductPage'
 import Products from "../pages/Products.jsx"
 import Header from "../components/header/Header.jsx";
-import Basket from "../pages/Basket";
+import Basket from "../pages/Basket.jsx";
 import Footer from "../components/footer/Footer.jsx";
-import Authorization from "../components/auth/Authorization";
+import Authorization from "../components/auth/Authorization.jsx";
 const router = createBrowserRouter([
   {
     path: `/`,
@@ -62,6 +62,16 @@ const router = createBrowserRouter([
     )
   },
   {
+  path: `/ProductPage`,
+  element: (
+    <div>
+      <Header />
+      <ProductPage />
+      <Footer />
+    </div>
+  )
+  },
+  {
     path: `/product`,
     element: (
       <div>
@@ -71,7 +81,8 @@ const router = createBrowserRouter([
       </div>
     )
   },
-  
+
+
 
 ]);
 
