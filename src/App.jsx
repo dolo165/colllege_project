@@ -1,16 +1,20 @@
 import './App.css'
 import router from './app/index.jsx'
 import {RouterProvider} from 'react-router-dom'
-import {createContext} from 'react'
 import {useReducer} from 'react'
+import {useState, createContext } from 'react'
 
-export const ModalContext = createContext()
+const ModalContext = createContext()
+const ContextBox = createContext()
+export {ModalContext, ContextBox}
 
 function App() {
+  const [box, setBox] = useState([])
   const [modal, dispatch] = useReducer(reducer, {
     active: false,
     content: 'registration'
   });
+
 
   function reducer(state, action) {
     switch (action.type) {
@@ -31,13 +35,16 @@ function App() {
 
   return (
     <div className="App">
+       <ContextBox.Provider value={[box, setBox]}>
       <ModalContext.Provider value={[modal, dispatch]}>
         <RouterProvider
           router={router}
         />
       </ModalContext.Provider>
+      </ContextBox.Provider>
     </div>
   )
+  
 }
 
 export default App

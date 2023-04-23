@@ -25,6 +25,7 @@ function ProductPage(props) {
            console.log(doc.id)
         });
         setCategories(category)
+        
     }
 
     const showAllCategory = categories.map((category, index) => {

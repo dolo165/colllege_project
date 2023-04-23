@@ -337,7 +337,7 @@ header{
 }
 .header_icon{
     text-align: center;
-    padding-right: 180px;
+    padding-right: 140px;
 }
 .header_ul{
     list-style: none;
@@ -347,7 +347,7 @@ header{
     list-style: none;
     display: flex;
     align-items: center;
-    padding-right: 50px;
+    /* padding-right: 50px; */
 }
 .header_li{
     color: #000000;

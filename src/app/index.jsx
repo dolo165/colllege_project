@@ -5,6 +5,7 @@ import ProductPage from '../pages/ProductPage'
 import Products from "../pages/Products.jsx"
 import Header from "../components/header/Header.jsx";
 import Basket from "../pages/Basket.jsx";
+import Category from "../pages/Category.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import Authorization from "../components/auth/Authorization.jsx";
 const router = createBrowserRouter([
@@ -23,9 +24,9 @@ const router = createBrowserRouter([
     path: `/catalog`,
     element: (
       <div>
-        <Header />
+
         <Catalog />
-        <Footer />
+      
       </div>
     
     )
@@ -81,9 +82,14 @@ const router = createBrowserRouter([
       </div>
     )
   },
-
-
-
+  {
+    path: `/products/:id`,
+    element: <ProductPage />
+  },
+  {
+    path: `/category/:category`,
+    element: <Category />
+  }
 ]);
 
 export default router;
