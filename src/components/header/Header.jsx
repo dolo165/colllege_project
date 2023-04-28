@@ -49,7 +49,7 @@ const Header = (Props) => {
                 </div>
                 <ul className='header_ul'>
                     <Link  to="/catalog"><a className='header_li' href="">Каталог</a> </Link>
-                    <Link  to="/"><a className='header_li' href="">Бренды</a></Link>
+                    <Link  to="/B"><a className='header_li' href="">Бренды</a></Link>
                     <Link  to="/"><a className='header_li' href="">Новинки</a></Link>
                     <Link  to="/"><a className='header_li' href="">Контакты</a></Link>
                     {/* <Link  to="/basket"><a className='header_li' href="">Cart</a></Link> */}

@@ -72,6 +72,16 @@ const router = createBrowserRouter([
     </div>
   )
   },
+  // {
+  // path: `/brends`,
+  // element: (
+  //   <div>
+  //     <Header />
+  //     <Brends />
+  //     <Footer />
+  //   </div>
+  // )
+  // },
   {
     path: `/product`,
     element: (
