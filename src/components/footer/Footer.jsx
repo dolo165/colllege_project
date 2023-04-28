@@ -12,7 +12,9 @@ export default function Footer (props) {
 
 
             <div className='footer_icon'>
-           <img src={icon} alt=""  width={163} height={63}/>
+                <a href="/">
+                    <img src={icon} alt=""  width={163} height={63}/>
+                </a>
             </div>
 
                 <p className='new_collection'>подписаться на обновления:</p>

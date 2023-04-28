@@ -52,6 +52,7 @@ const Header = (Props) => {
                     <Link  to="/"><a className='header_li' href="">Бренды</a></Link>
                     <Link  to="/"><a className='header_li' href="">Новинки</a></Link>
                     <Link  to="/"><a className='header_li' href="">Контакты</a></Link>
+                    {/* <Link  to="/basket"><a className='header_li' href="">Cart</a></Link> */}
                 </ul>
                 
                 <div className='header_icon'>
@@ -78,9 +79,6 @@ const Header = (Props) => {
                             )
                         }
                         
-                    </li>
-                    <li className='header_li'>
-                        <img src={navigate} alt="" width={30} height={30}/>
                     </li>
                     <li className='header_li'>
                             <Link to="/basket"><img src={mall} alt="" width={29} height={32} /></Link>

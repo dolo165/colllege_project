@@ -1,77 +1,80 @@
-import React from 'react';
-import harper from '../components/assets/harper.png'
-import pexels from '../components/assets/pexels.png'
-import face from '../components/assets/faces.png'
-import body from '../components/assets/bodyes.png'
-import cary from '../components/assets/care.png'
-import set from '../components/assets/sets.png'
 import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
-import { Link } from 'react-router-dom';
-import Modal from '../components/Modal';
-import { ModalContext } from '../App';
-import {useContext} from 'react'
+import {useState, useEffect} from "react"
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
+import { collection, query, getDocs } from "firebase/firestore";
+import { database } from "../app/firebase";
+import {Link} from 'react-router-dom'
 
-function catalog(props) {
-    const [modal, dispatch] = useContext(ModalContext)
+  const Catalog = (props) => {
+     const [product, setProducts] = useState([])
+       const [categories, setCategories] = useState([])
 
-    const modalState = {
-        props: modal,
-        dispatch: dispatch,
+       useEffect(() => {
+          getData();
+      }, [])
+
+      console.log(categories)
+
+     async function getData() {
+         const q = query(collection(database, "category"));
+         const querySnapshot = await getDocs(q);
+          let category = []
+         querySnapshot.forEach((doc) => {
+         category.push({...doc.data(), id: doc.id})
+        console.log(doc.id)
+        });
+        setCategories(category)
     }
 
+    /*const showAllProducts = products.map((product, index) => {
+        return (
+            <Card text="123123">
+                <Card.Img variant="top" src={product.image} />
+                <Card.Body>
+                    <Card.Title>{console.log(product)}</Card.Title>
+                    <Card.Text>
+                    {product.description}
+                    </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                    <small className="text-muted">{product.price}$</small>
+                </Card.Footer>
+            </Card>
+        )
+    })*/
+
+    const showAllCategory = categories.map((category, index) => {
+        return (
+            <Link to={`/category/${category.id}`}>
+                <Card text="123123" key={index}>
+                    <Card.Img variant="top" src={category?.image} />
+                    <Card.Body>
+                        <Card.Title>{category.name}</Card.Title>
+                        <Card.Text>
+                            {category.description}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Link>
+        )
+    })
     
     return (
-        
-        <div className='catalog_container'>
-            <div className='catalogs'>
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={harper} alt="" />
-                    <p className='catalog_p'>Новинки</p>
+        <div>
+            <Header />
+            <div>
+                <div>
+                    {/*showAllProducts*/}
+                    <CardGroup>
+                        {showAllCategory}
+                    </CardGroup>
                 </div>
-                </Link>
-                
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={pexels} alt="" />
-                    <p className='catalog_p'>Бестселлеры</p>
-                </div>
-                </Link>
-
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={face} alt="" />
-                    <p className='catalog_p'>Для лица</p>
-                </div>
-                </Link>
-
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={body} alt="" />
-                    <p className='catalog_p'>Для тела</p>
-                </div>
-                </Link>
-
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={cary} alt="" />
-                    <p className='catalog_p'>Уход</p>
-                </div>
-                </Link>
-
-
-                <Link to='/products'>
-                <div className='item'>
-                    <img src={set} alt="" />
-                    <p className='catalog_p'>Наборы</p>
-                </div>
-                </Link>
             </div>
-            <Modal modal={modalState}/>
+            <Footer />
         </div>
-    
-    );
-}
+    )
+};
 
-export default catalog;
+export default Catalog;

@@ -9,6 +9,7 @@ import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import {ContextBox} from '../App'
+import { Link } from 'react-router-dom';
 
 const Category = (props) => {
     const id = useParams()
@@ -56,7 +57,7 @@ const Category = (props) => {
         return (
             <Card text="123123" key={index}>
                 <div className="id-card" data-id={product.id}></div>
-                <Card.Img variant="top" src={product.photo} />
+                <Card.Img variant="top" src={product.photo1} />
                 <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
                     <Card.Text>
@@ -65,7 +66,7 @@ const Category = (props) => {
                 </Card.Body>
                 <Card.Footer>
                 <small className="text-muted"><span className="price-product">{product.price}</span>$</small>
-                    <div><button onClick={addToCart}>Добавить в корзину</button></div>
+                    <div><button onClick={() => setShowMore((prev) => !prev)}>Добавить в корзину</button></div>
                 </Card.Footer>
             </Card>
         )
@@ -75,7 +76,7 @@ const Category = (props) => {
         <div>
             <Header />
             <div className="container">
-                Страница категории
+                {/* Страница категории */}
                 <CardGroup>
                     {viewProducts}
                 </CardGroup>
