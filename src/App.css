@@ -768,7 +768,9 @@ header{
     justify-content: space-between;
   }
   
-  
+  .card{
+    width: 500px;
+  }
   /* .container{
     width:900px;
     margin: 0 auto;

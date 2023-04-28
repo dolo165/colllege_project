@@ -48,7 +48,7 @@ import {Link} from 'react-router-dom'
     const showAllCategory = categories.map((category, index) => {
         return (
             <Link to={`/category/${category.id}`}>
-                <Card text="123123" key={index}>
+                <Card key={index}>
                     <Card.Img variant="top" src={category?.image} />
                     <Card.Body>
                         <Card.Title>{category.name}</Card.Title>
