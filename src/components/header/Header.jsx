@@ -42,17 +42,15 @@ const Header = (Props) => {
                     <ul className='header_ul'>
                         <li>Каталог</li>
                         <li>Бренды</li>
-                        <li>Новинки</li>
+                        {/* <li>Новинки</li> */}
                         <li>Контакты</li>
                     </ul>
                   </nav>
                 </div>
                 <ul className='header_ul'>
                     <Link  to="/catalog"><a className='header_li' href="">Каталог</a> </Link>
-                    <Link  to="/B"><a className='header_li' href="">Бренды</a></Link>
-                    <Link  to="/"><a className='header_li' href="">Новинки</a></Link>
-                    <Link  to="/"><a className='header_li' href="">Контакты</a></Link>
-                    {/* <Link  to="/basket"><a className='header_li' href="">Cart</a></Link> */}
+                    <Link  to="/feedback"><a className='header_li' href="">Отзывы</a></Link>
+                    <Link  to="/Brands"><a className='header_li' href="">Бренды</a></Link>
                 </ul>
                 
                 <div className='header_icon'>

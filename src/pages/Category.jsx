@@ -55,20 +55,26 @@ const Category = (props) => {
 
     const viewProducts = product.map((product, index) => {
         return (
-            <Card text="123123" key={index}>
+            
+            <Link  to="/product">
+                <Card text="123123" key={index}>
                 <div className="id-card" data-id={product.id}></div>
                 <Card.Img variant="top" src={product.photo1} />
                 <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
-                    <Card.Text>
-                    {product.description}
-                    </Card.Text>
+                    {/* <Card.Text>
+                    {product.discription}
+                    </Card.Text> */}
                 </Card.Body>
-                <Card.Footer>
+                {/* <Card.Footer> */}
                 <small className="text-muted"><span className="price-product">{product.price}</span>$</small>
-                    <div><button onClick={() => setShowMore((prev) => !prev)}>Добавить в корзину</button></div>
-                </Card.Footer>
+                    <div className="add_button">
+                        <button>Добавить в корзину</button>
+                    </div>
+                {/* </Card.Footer> */}
             </Card>
+            </Link>
+
         )
     })
 

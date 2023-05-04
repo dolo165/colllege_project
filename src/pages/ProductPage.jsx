@@ -33,11 +33,11 @@ function ProductPage(props) {
         <div className='catalog_container'>
             <Link to={`/category/${category.id}`}>
                     <Card text="qwerty" key={index}>
-                        <Card.Img variant="top" src={category?.photo} />
+                        <Card.Img variant="top" src={category?.photo1} />
                         <Card.Body>
                             <Card.Title>{category.name}</Card.Title>
                             <Card.Text>
-                                {category.description}
+                                {category.discription}
                             </Card.Text>
                         </Card.Body>
                     </Card>

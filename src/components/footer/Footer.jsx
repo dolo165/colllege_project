@@ -1,5 +1,6 @@
 import icon from '../assets/Group.png'
 import {useForm} from "react-hook-form";
+import { Link } from 'react-router-dom'
 
 export default function Footer (props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -41,18 +42,18 @@ export default function Footer (props) {
 
             <div className='terms'>
                 <ul className='footer_ul'>
-                    <li className='footer_li'>доставка</li>
-                    <li className='footer_li'>оплата</li>
-                    <li className='footer_li'>контакты</li>
+                    <Link to='/delivery'><a className='footer_li' href="">доставка</a></Link>
+                    <Link to='/'><a className='footer_li' href="">оплата</a></Link>
+                    <Link to='/Contacts'><a className='footer_li' href="">контакты</a></Link>
                 </ul>
             </div>
 
             <div className='terms'>
 
                 <ul className='footer_ul'>
-                    <li className='footer_li'>отзывы</li>
-                    <li className='footer_li'>сертификаты</li>
-                    <li className='footer_li'>каталог</li>
+                    <Link to='/feedback'><a className='footer_li' href="">отзывы</a></Link>
+                    <Link to='/'><a className='footer_li' href="">сертификаты</a></Link>
+                    <Link to='/catalog'><a className='footer_li' href="">каталог</a> </Link>
                 </ul>
 
             </div>

@@ -4,10 +4,14 @@ import Catalog from '../pages/Catalog'
 import ProductPage from '../pages/ProductPage'
 import Products from "../pages/Products.jsx"
 import Header from "../components/header/Header.jsx";
+import Delivery from "../pages/Delivery.jsx";
 import Basket from "../pages/Basket.jsx";
 import Category from "../pages/Category.jsx";
+import Contacts from "../pages/Contacts.jsx";
+import Brends from "../pages/Brends.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import Authorization from "../components/auth/Authorization.jsx";
+import Feedback from "../pages/Feedback.jsx";
 const router = createBrowserRouter([
   {
     path: `/`,
@@ -53,6 +57,27 @@ const router = createBrowserRouter([
     )
   },
   {
+    path: `/brands`,
+    element: (
+      <div>
+        <Header />
+        <Brends />
+        <Footer />
+      </div>
+    )
+    },
+  
+    {
+      path: `/Contacts`,
+      element: (
+        <div>
+          <Header />
+          <Contacts />
+          <Footer />
+        </div>
+      )
+      },
+  {
     path: `/authorization`,
     element: (
       <div>
@@ -72,16 +97,26 @@ const router = createBrowserRouter([
     </div>
   )
   },
-  // {
-  // path: `/brends`,
-  // element: (
-  //   <div>
-  //     <Header />
-  //     <Brends />
-  //     <Footer />
-  //   </div>
-  // )
-  // },
+  {
+  path: `/feedback`,
+  element: (
+    <div>
+      <Header />
+      <Feedback />
+      <Footer />
+    </div>
+  )
+  },
+  {
+    path: `/delivery`,
+    element: (
+      <div>
+        <Header />
+        <Delivery />
+        <Footer />
+      </div>
+    )
+    },
   {
     path: `/product`,
     element: (

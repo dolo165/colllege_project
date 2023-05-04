@@ -338,7 +338,7 @@ header{
 }
 .header_icon{
     text-align: center;
-    padding-right: 290px;
+    padding-right: 260px;
 }
 .header_ul{
     list-style: none;
@@ -468,7 +468,9 @@ header{
     padding: 13px; 
     cursor: pointer;
 }
+.footer_li:hover{
 
+}
 .footer_ul{
     margin: 0 auto; 
 }
@@ -700,7 +702,7 @@ header{
   .head_info{
     font-style: normal;
     font-weight: 500;
-   
+   padding-top: 50px;
     line-height: 37px;
     
     color: #575757;
@@ -744,7 +746,12 @@ header{
      width: 845px;
     padding: 20px;
   }
-  
+  .input_delivery_div{
+    width: 97%;
+  padding: 20 0;
+  border-radius: 10px;
+  color: #5A5454;  
+}
   .nav_down{
     margin-left: -20px;
   }
@@ -762,7 +769,7 @@ header{
     
   }
   .name_surname{
-    width: 890px;
+    width: 850px;
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
@@ -1793,7 +1800,7 @@ header{
         margin: 0 auto;
     }
     .header_icon img, .footer_icon img {
-        height: 90px;
+        height: 100px;
         width: 180px;
     }
     .center-flex{
@@ -1916,7 +1923,7 @@ header{
   align-items: center;
 }
 .card img{
-  width: 350px;
+  width: 250px;
 }
 .card-group{
   display: flex;
@@ -1924,10 +1931,23 @@ header{
   align-items: center;
   /* margin-left: 100px; */
   justify-content: center;
+  flex-direction: row;
+}
+.muted{
+  text-align: center;
+}
+.add_button  button{
+  color: #fff;
+  background-color: #3e8e41;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: transparent;
+  border-right: transparent;
 }
 .road{
   display: flex;
-  gap: 50px;
+  /* gap: 50px; */
   margin: 45px;
   margin-left: 0px;
   color: black;
@@ -1935,9 +1955,52 @@ header{
 .road a{
   color: black;
 }
-
-
-@media screen and (max-width: 1280px) {
+.feedback_container{
+  width: 1200px;
+  margin: 0 auto;
+}
+.feedback_h1{
+  text-align: center;
+  font-weight: 400;
+  padding: 30 0;
+}
+.stars{
+  padding-top: 20px;
+}
+.feedback_p{
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10 0;
+}
+.feedback_footer{
+  padding: 40 0;
+}
+.feedback_customer{
+  padding: 10 0;
+}
+.feedback_p2{
+  font-weight: 400;
+  padding: 10 0;
+}
+.feedbacks{
+  display: flex;
+  justify-content: space-around;
+  padding: 40 0;
+  border: 1px solid #858484;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+/* .feedback_content{
+  pad
+} */
+.left_content{
+  display: flex;
+  flex-direction: column;
+}
+.right_content{
+  display: flex;
+}
+/* @media screen and (max-width: 1280px) {
   .clothes_container{
       display: flex;
       flex-direction: column;
@@ -1988,8 +2051,8 @@ header{
       margin-left: 20px;
       margin-right: 20px;
   }
-}
-@media screen and (max-width: 420px) {
+} */
+/* @media screen and (max-width: 420px) {
   .man_woman_clothes, .kids_clothes_container{
       flex-direction: column; 
       width: 350px;
@@ -2008,8 +2071,8 @@ header{
       margin-left: 19px;
       margin-right: 19px;
   }
-}
-@media screen and (max-width: 280px) {
+} */
+/* @media screen and (max-width: 280px) {
   .man_woman_clothes, .kids_clothes_container{
       flex-direction: column; 
       width: 200px;
@@ -2022,4 +2085,127 @@ header{
       margin-left: 40px;
       margin-right: 40px;
   }
+} */
+.brands_about{
+  color: black;
+  font-size: 20px;
 }
+
+.brands{
+  padding: 40 0;
+  margin: 40px;
+  display: flex;
+}
+.first_brands_content{
+  display: flex;
+  flex-direction: column;
+}
+.second_brand{
+  margin: 50px;
+}
+
+.brands_content{
+  margin: 0 10;
+}
+.third_brands_content{
+  margin: 0 50;
+}
+.brands_header{
+  width: 100%;
+  display: flex;
+
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.header_biolage{
+  font-size: 65px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.header_bioderma{
+  font-size: 65px;
+  color: #000000;
+  margin-bottom: 20px;
+
+}
+
+
+
+.about_biolage{
+  color: black;
+  font-size: 30px;
+
+}
+
+.third_brand{
+  margin: 50px;
+
+}
+
+
+.about_bioderma{
+  color: black;
+  font-size: 30px;
+}
+
+
+
+.contacts_h{
+  font-size: 45px;
+  margin: 10px;
+  padding: 15px;
+
+}
+
+
+
+.contacts_main{
+  font-size: 30px;
+
+ 
+  margin: 10px;
+  padding: 15px;
+  
+}
+
+
+.number_contact{
+  background: #06d6647d;
+  width: 50%;
+
+      
+ 
+  color: #333;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.number_contact2{
+  background: #06d6647d;
+  width: 50%;
+
+      
+ 
+  color: #333;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+
+.number_contact3{
+  background: #06d6647d;
+  width: 50%;
+
+      
+ 
+  color: #333;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
