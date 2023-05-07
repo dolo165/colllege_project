@@ -36,7 +36,7 @@ const Header = (Props) => {
         <header>
             <nav className='container_nav'>
               
-
+                
                 <div className="menu">
                   <nav className='nav'>
                     <ul className='header_ul'>
@@ -47,27 +47,28 @@ const Header = (Props) => {
                     </ul>
                   </nav>
                 </div>
-                <ul className='header_ul'>
-                    <Link  to="/catalog"><a className='header_li' href="">Каталог</a> </Link>
-                    <Link  to="/feedback"><a className='header_li' href="">Отзывы</a></Link>
-                    <Link  to="/Brands"><a className='header_li' href="">Бренды</a></Link>
-                </ul>
+                
                 
                 <div className='header_icon'>
                     <a href="/">
                         <img src={icon} alt="" />
                     </a>
                 </div>
-
+        <ul className='header_ul'>
+                            <Link  to="/catalog"><a className='header_li' href="">Каталог</a> </Link>
+                            <Link  to="/feedback"><a className='header_li' href="">Отзывы</a></Link>
+                            <Link  to="/brands"><a className='header_li' href="">Бренды</a></Link>
+                            <Link  to="/contacts"><a className='header_li' href="">Контакты</a></Link>
+                        </ul>
                 <ul className='header_assets'>
-                    <li className='header_li'>
+                    {/* <li className='header_li'>
                         <img src={search} alt=""  width={42} height={42}/>
-                    </li>
+                    </li> */}
                     <li className='header_li'>
                         {user
                             ? (
                                 <div className='modal_icon'>
-                                    <Link to="/profile"><img src={person} alt="" width={42} height={42} /></Link>
+                                    <Link to="/profile"><img src={person} alt="" width={40} height={40} /></Link>
                                 </div> 
                             )
                             :   (

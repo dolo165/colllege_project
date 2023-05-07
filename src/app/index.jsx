@@ -68,7 +68,7 @@ const router = createBrowserRouter([
     },
   
     {
-      path: `/Contacts`,
+      path: `contacts`,
       element: (
         <div>
           <Header />
@@ -81,14 +81,14 @@ const router = createBrowserRouter([
     path: `/authorization`,
     element: (
       <div>
-        <Header />
+        {/* <Header /> */}
         <Authorization />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   },
   {
-  path: `/ProductPage`,
+  path: `/productpage`,
   element: (
     <div>
       <Header />
@@ -129,7 +129,11 @@ const router = createBrowserRouter([
   },
   {
     path: `/products/:id`,
-    element: <ProductPage />
+    element: <div>
+    <Header />
+    <ProductPage />
+    <Footer />
+  </div>  
   },
 
   {

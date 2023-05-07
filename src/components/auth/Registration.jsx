@@ -119,7 +119,6 @@ const Registration = (props) => {
                 </div>
                 <div className="formAnother_container">
                     <Link to="/authorization" className='p' >Войти</Link>
-                    {/* <Link  to="/catalog"><a className='header_li' href="">Контакты</a></Link> */}
                 </div>  
             </form>
         </div>

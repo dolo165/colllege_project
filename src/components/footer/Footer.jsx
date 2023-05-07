@@ -43,12 +43,15 @@ export default function Footer (props) {
             <div className='terms'>
                 <ul className='footer_ul'>
                     <Link to='/delivery'><a className='footer_li' href="">доставка</a></Link>
-                    <Link to='/'><a className='footer_li' href="">оплата</a></Link>
+                    {/* <Link to='/'><a className='footer_li' href="">оплата</a></Link> */}
                     <Link to='/Contacts'><a className='footer_li' href="">контакты</a></Link>
+                    <Link to='/feedback'><a className='footer_li' href="">отзывы</a></Link>
+                    {/* <Link to='/'><a className='footer_li' href="">сертификаты</a></Link> */}
+                    <Link to='/catalog'><a className='footer_li' href="">каталог</a> </Link>
                 </ul>
             </div>
 
-            <div className='terms'>
+            {/* <div className='terms'>
 
                 <ul className='footer_ul'>
                     <Link to='/feedback'><a className='footer_li' href="">отзывы</a></Link>
@@ -56,7 +59,7 @@ export default function Footer (props) {
                     <Link to='/catalog'><a className='footer_li' href="">каталог</a> </Link>
                 </ul>
 
-            </div>
+            </div> */}
             <div className="footer_line"></div>
 
             </div>

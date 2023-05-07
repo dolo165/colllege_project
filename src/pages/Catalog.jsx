@@ -52,9 +52,9 @@ import {Link} from 'react-router-dom'
                     <Card.Img variant="top" src={category?.image} />
                     <Card.Body>
                         <Card.Title>{category.name}</Card.Title>
-                        <Card.Text>
-                            {category.description}
-                        </Card.Text>
+                        {/* <Card.Text>
+                            {category.discription}
+                        </Card.Text> */}
                     </Card.Body>
                 </Card>
             </Link>

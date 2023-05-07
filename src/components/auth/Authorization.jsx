@@ -6,6 +6,7 @@ import {auth, provider} from '../../app/firebase'
 import {signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from "react-hook-form";
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
 // export default function Authorization (props) {
@@ -59,34 +60,34 @@ import { useState } from 'react';
                        type="text" 
                        name="email" 
                        placeholder="Email"
-                    //    {...register("email", {
-                    //        required: "Параметр обязателен",
-                    //        pattern: {
-                    //          value: /\S+@\S+\.\S+/,
-                    //          message: "Ваш email не подходит под нужный формат"
-                    //        }
-                    //    })}
+                       {...register("email", {
+                           required: "Параметр обязателен",
+                           pattern: {
+                             value: /\S+@\S+\.\S+/,
+                             message: "Ваш email не подходит под нужный формат"
+                           }
+                       })}
                     onChange={inputLogin}
                    />
-                   {/* {errors.email && <span className="error" role="alert">{errors.email?.message}</span>} */}
+                   {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
                </div>
                 <div className="form_containery">
                 <input className="input_password"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"
-                        // {...register("password", {
-                        //     required: "Параметр обязателен",
-                        //     minLength: {
-                        //       value: 7,
-                        //       message: "Минимальная длина кода 7 символов"
-                        //     }
-                        //   })}
+                        {...register("password", {
+                            required: "Параметр обязателен",
+                            minLength: {
+                              value: 7,
+                              message: "Минимальная длина кода 7 символов"
+                            }
+                          })}
                         onChange={inputPassword} 
                     />
                   
 
-                {/* {errors.password && <span className="error" role="alert">{errors.password?.message}</span>} */}
+                {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
                 <div className="login">
                     <button onClick={signInWithGoogle} style={{backgroundColor : 'transparent',border:"none"}}><img src={google}alt=""width={50} height={50}/></button>
@@ -95,7 +96,7 @@ import { useState } from 'react';
                     <a href="https://m.facebook.com/login/?locale2=ru_RU"><img src={facebook}alt="" width={50} height={50}/></a>
                 </div>
                 <div className="form_containery">
-                    <input className="input_login" type="submit" value="Войти"/>
+                    <Link to='/authorization'><input className="input_login" type="submit" value="Войти"/></Link>
                 </div>
                 <div className="formAnother_container">
                     <a href=''className='p'>Забыли пароль?</a>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Contacts(props) {
     return (
-        <div>
+        <div className='contacts_container'>
             <h1 className='contacts_h'>Контакты</h1>
 
             <div className='contacts_main'>
@@ -22,7 +22,7 @@ function Contacts(props) {
                 </div>
 
 
-                <div className='number_contact3'>
+                <div className='nunpmber_contact3'>
                     <p>Email</p>
                     <a href="mailto:avebeauty@mail.kg">avebeauty@mail.kg</a>
                 </div>
