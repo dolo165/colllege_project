@@ -10,7 +10,8 @@ import { useContext } from 'react'
 import { ModalContext } from '../../App'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../app/firebase'
-
+import Hamburger from 'hamburger-react'
+import { useState } from 'react'
 
 const Header = (Props) => {
     const [user] = useAuthState(auth)
@@ -32,11 +33,20 @@ const Header = (Props) => {
         await dispatch({type: 'modal', modal: true})
     }
     
+    
+
+
     return (
         <header>
             <nav className='container_nav'>
-              
-                
+
+            <Hamburger onToggle={toggled => {
+                if (toggled) {
+                    push
+                } else {
+            
+                }
+            }} />
                 <div className="menu">
                   <nav className='nav'>
                     <ul className='header_ul'>
@@ -54,7 +64,7 @@ const Header = (Props) => {
                         <img src={icon} alt="" />
                     </a>
                 </div>
-        <ul className='header_ul'>
+                <ul className='header_ul'>
                             <Link  to="/catalog"><a className='header_li' href="">Каталог</a> </Link>
                             <Link  to="/feedback"><a className='header_li' href="">Отзывы</a></Link>
                             <Link  to="/brands"><a className='header_li' href="">Бренды</a></Link>

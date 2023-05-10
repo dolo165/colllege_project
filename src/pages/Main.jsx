@@ -7,6 +7,7 @@ import person from '../components/assets/person.png'
 import {useContext} from 'react'
 import {ModalContext} from '../App'
 import { Link } from 'react-router-dom'
+import main from '../assets/main.jpg'
 
 const Main = (props) => {
     const [user, loading, error] = useAuthState(auth);
@@ -60,6 +61,9 @@ const Main = (props) => {
                     <img src={navigate} alt="" width={50} height={50}/>
                 </Link>      
             </div>
+            {/* <div className="main_photo">
+                <img src={main} alt="" />
+            </div> */}
             <Modal modal={modalState}/>
         </div>
 

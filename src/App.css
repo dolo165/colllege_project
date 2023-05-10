@@ -117,6 +117,8 @@ a ::after,
 a :hover{
     color: #3e8e41;
     border: 1px;
+    border-bottom: 1px solid #3e8e41;
+    max-width: max-content;
 }
 .upper_form{
     margin: 0 auto;
@@ -190,6 +192,7 @@ form{
     align-items: center;
     gap: 10px;
     padding-left: 40px;
+    font-size: 13px;
 }
 .formSec_containers{
     display: flex;
@@ -359,6 +362,8 @@ header{
     display: flex;
     align-items: center;
 }
+    
+
 .hamburger-react{
     display: none;
 }
@@ -472,8 +477,9 @@ header{
     padding: 13px; 
     cursor: pointer;
 }
-.footer_li:hover{
-
+.footer_li:hover, .back p:hover{
+  border-bottom: 1px solid #3e8e41;
+  max-width: max-content;
 }
 .footer_ul{
     margin: 0 auto; 
@@ -755,6 +761,7 @@ header{
   padding: 20 0;
   border-radius: 10px;
   color: #5A5454;  
+  font-size: 15px;
 }
   .nav_down{
     margin-left: -20px;
@@ -1139,12 +1146,12 @@ header{
       justify-content: center;
       width: 100%;
     }
-    p{
+    /* p{
       margin: 0 auto;
       width: 85%;
       margin-top: 40px;
       margin-bottom: 40px;
-    }
+    } */
     .products_powder, .products_cream, .products_mask{
       width: 80%;
       margin: 0 auto;
@@ -1170,6 +1177,13 @@ header{
   @media screen and (max-width: 426px) {
     .head_ul{
       display: none;
+    }
+    .App{
+      width: 100%;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
     }
     body{
       width: 100%;
@@ -1229,13 +1243,13 @@ header{
       width: 100%;
   
     }
-    p{
+    /* p{
       margin: 0 auto;
       width: 100%;
       font-size: 40px;
       margin-top: 40px;
       margin-bottom: 40px;
-    }
+    } */
     .products_powder, .products_cream, .products_mask{
       width: 100%;
       margin: 0 auto;
@@ -1451,7 +1465,7 @@ header{
       margin: 0 auto;
     }
   }
-  @media screen and (max-width:768px){
+  /* @media screen and (max-width:768px){
     .first_line, .second_line, .third_line{
       display: flex;
       flex-wrap: wrap;
@@ -1479,7 +1493,7 @@ header{
       width: 100%;
       margin: 0 auto;
     }
-  }
+  } */
   @media screen and (max-width:426px){
     
     .goods_header{
@@ -1526,6 +1540,7 @@ header{
     .container_nav{
       display: flex;
       justify-content: space-between;
+      padding: 40 0;
     }
   }
 @media screen and (max-width: 768px) {
@@ -1554,7 +1569,7 @@ header{
     }
     .hamburger-react{
         display: block;
-        padding-left: 20px;
+        padding-left: 40px;
       }
     .menu-btn{
         width: 20px;
@@ -1584,8 +1599,11 @@ header{
         margin: 0 auto;
         width: 80%;
         padding-top: 50px;
-        padding-bottom: 50px;
+        padding-bottom: 10px;
         font-size: 30px;
+      }
+      .footer_content{
+        width: 100%;
       }
       .footer_reg{
         font-size: 25px;
@@ -1594,20 +1612,43 @@ header{
       }
       .terms{
         font-size: 30px;
+        display: flex;
+        flex-direction: column;
       }
       .h1, .footer_follow, .footer_reg, .modal_icon{
         width: 80%;
         margin: 0 auto;
+      }
+      .footer_input{
+        height: 70px;
+        width: 80%;
+      }
+      .footer_input::placeholder{
+        font-size: 26px;
+      }
+      .footer_button{
+        height: 70px;
+        width:30%;
       }
       body, html{
         width: 1290px;
       }
       .header_icon{
         padding-right: 20px;
+        padding-left:50px;
       }
       .header_icon img {
         width: 200px;
         height: 90px;
+      }
+      .stars img {
+        width: 35px;
+      }
+      .feedback_message p, .feedback_footer p{
+        font-size: 26px;
+      }
+      .feedback_h1{
+        font-size: 50px;
       }
 }
 @media screen and (max-width: 426px) {
@@ -1817,16 +1858,11 @@ header{
         width: 180px;
     }
     .center-flex{
-        /* width: 500px; */
+        width: 90%;
+        display: flex;
+        justify-content: center;
         margin: 0 auto;
     }
-    .new_collection{
-        margin: 0 auto;
-        width: 100%;
-        font-size: 50px;
-        padding-bottom: 90px;
-        padding-top: 90px;
-      }
       .footer_follow{
         display: flex;
         justify-content: center;
@@ -1857,8 +1893,8 @@ header{
         height: 100px;
       }
       .footer_icon img{
-        width: 400px;
-        height: 200px;
+        width: 300px;
+        height: 150px;
       }
       h1 .footer_follow,  .modal_icon{
         width: 80%;
@@ -1868,18 +1904,18 @@ header{
       .footer_reg{
         width: 100%;
       }
-      .terms{
+      /* .terms{
         width: 100%;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-      }
+      } */
       .p{
         font-size: 60px;
         width: 120%;
       }
       h1{
-        padding-top: 140px;
+        padding-top: 240px;
         font-size: 110px;
         width: 90%;
         margin: 0 auto;
@@ -1888,11 +1924,16 @@ header{
         display: flex;
         align-items: center;
         padding-top: 30px;
+        padding-bottom: 200px;
         /* margin: 0 auto; */
         width: 95%;
       }
+      .main_h1{
+        font-size: 100px;
+      }
       .h3{
         font-size: 80px;
+        text-align: center;
       }
       .main_direct img {
         width: 120px;
@@ -1900,19 +1941,43 @@ header{
       }
       .footer_reg{
         padding-top: 60px;
+        width: 90%;
         padding-bottom: 40px;
         font-size: 50px;
-        line-height: 40px;
+        line-height: 60px;
+        text-align: center;
       }
-      .footer_li{
+      .footer_ul a{
         cursor: pointer;
+        padding: 20 0;
+        gap: 20px;
+      }
+      .footer_ul{
+        display: flex;
+        flex-direction: column;
+        /* padding: 20 0; */
       }
       .footer_content{
         padding-top: 400px;
+        padding-bottom: 50px;
       }
       .terms{
         font-size: 50px;
         margin-top: 50px;
+      }
+      .card-group{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 50%;
+        /* background-color: red; */
+        padding-top: 100px;
+      }
+      .card{
+        width: 300px;
+      }
+      .card_img_top{
+        height: 200px;
       }
 }
 
@@ -2013,97 +2078,34 @@ header{
 .right_content{
   display: flex;
 }
-/* @media screen and (max-width: 1280px) {
-  .clothes_container{
-      display: flex;
-      flex-direction: column;
-  }
-  .man_clothes,.woman_clothes,.kids_clothes{
-      width: 350px;
-      height: 350px;
-      background-size: cover;
-  }
-}
-@media screen and (max-width: 920px) {
-  .clothes_container{
-      margin-left: 95px;
-  }
-}
-@media screen and (max-width: 821px) {
-  .man_woman_clothes, .kids_clothes_container{
-      display: flex;
-      gap: 60px;
-  }
-  .man_clothes,.woman_clothes,.kids_clothes{
-      width: 300px;
-      height: 300px;
-  }
-  .man_woman_clothes{
-      flex-direction: row;
-  }
-  .kids_clothes_container{
-      display: flex;
-      justify-content: center;
-  }
-}
-@media screen and (max-width: 770px) {
-  .clothes_container{
-      margin-left: 55px;
-  }
-}
-@media screen and (max-width: 540px) {
-  .man_woman_clothes, .kids_clothes_container{
-      flex-direction: column; 
-      width: 500px;
-  }
-  .man_clothes,.woman_clothes,.kids_clothes{
-      width: 500px;
-      height: 500px;
-  }
-  .clothes_container{
-      margin-left: 20px;
-      margin-right: 20px;
-  }
-} */
-/* @media screen and (max-width: 420px) {
-  .man_woman_clothes, .kids_clothes_container{
-      flex-direction: column; 
-      width: 350px;
-  }
-  .man_clothes,.woman_clothes,.kids_clothes{
-      width: 350px;
-      height: 350px;
-  }
-  .clothes_container{
-      margin-left: 30px;
-      margin-right: 30px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .clothes_container{
-      margin-left: 19px;
-      margin-right: 19px;
-  }
-} */
-/* @media screen and (max-width: 280px) {
-  .man_woman_clothes, .kids_clothes_container{
-      flex-direction: column; 
-      width: 200px;
-  }
-  .man_clothes,.woman_clothes,.kids_clothes{
-      width: 200px;
-      height: 200px;
-  }
-  .clothes_container{
-      margin-left: 40px;
-      margin-right: 40px;
-  }
-} */
 .brands_about{
   color: black;
   font-size: 20px;
 }
-
+.brands_article { 
+  width: 100%;
+  background-color: #4c6a3d;
+  color: white;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  
+}
+.brands_article a{
+  font-size: 21px;
+  font-weight: 300;
+  color: white;  
+}
+.brands_article p{
+  padding-left: 135px;
+  padding-right: 10px;
+}
+.brands_article span{
+  padding-left: 10px;
+}
+.brands_article a:hover{
+  color: gold;
+}
 .brands{
   padding: 40 0;
   margin: 40px;

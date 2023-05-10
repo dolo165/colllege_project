@@ -108,7 +108,7 @@ const Registration = (props) => {
                 </div>
                 <div className="formOne_container">
                     <input type="checkbox" className="coco"></input>
-                    <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и распродажах</p>
+                    <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и <br /> распродажах</p>
                 </div>
                 <div className="formOne_container">
                 <input type="checkbox" className="coco"></input>

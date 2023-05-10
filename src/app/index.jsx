@@ -81,9 +81,9 @@ const router = createBrowserRouter([
     path: `/authorization`,
     element: (
       <div>
-        {/* <Header /> */}
+        <Header />
         <Authorization />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     )
   },
