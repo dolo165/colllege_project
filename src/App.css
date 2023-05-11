@@ -1110,41 +1110,63 @@ header{
     h2, h1{
       text-align: center;
     }
+    .basket_container{
+      padding: 0;
+    }
     .head_info{
       display: flex;
       flex-direction: column;
+      padding: 0;
     }
     .checkbox_text{
       margin: 0 auto;
-      width: 80%;
+      width: 100%;
+      font-size: 20px;
       margin-top: 7px;
     }
     .input_mail, .input_delivery, .input_adres, .input_apart, .input_index, .input_number{
-      width: 75%;
+      width: 98%;
+      height: 100px;
       margin: 0 auto;
     }
     .input_delivery_div{
+      width: 100%;
+      height: 100px;
+   
       display: flex;
       justify-content: center;
     }
     .nav_down{
       display: none;
     }
-    .input_name, .input_surname{
-      width: 75%;
+    .input_imya{
+      height: 100px;
+      width: 100%;
       margin: 0 auto;
       margin-top: 21px;
     }
+    
+
+    .input_surname{
+      margin: 0 auto;
+      margin-top: 21px;
+      width: 100%;
+      height: 100px;
+    }
+    
+    
     .name_surname{
+      width: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      width: 100%;
+      
     }
     .adres_div, .div_apart, .div_index, .div_number{
       display: flex;
       justify-content: center;
       width: 100%;
+      
     }
     /* p{
       margin: 0 auto;
@@ -1173,6 +1195,13 @@ header{
       margin: 0 auto;
       width: 18%;
     }
+
+
+    .brands_article p, .brands_article span{
+      font-size: 35px;
+      
+    }
+    
   }
   @media screen and (max-width: 426px) {
     .head_ul{
@@ -1197,16 +1226,40 @@ header{
       font-size: 80px;
       line-height: 90px;
     }
-     .input_delivery, .input_adres, .input_apart, .input_index, .input_number{
-      width: 100%;
+     .input_delivery_div      .input_adres, .input_apart, .input_index, .input_number{
+      width: 98%;
       height: 100px;
       font-size: 40px;
       margin: 0 auto;
     }
+
+    .input_delivery_div{
+      padding:  0 15;
+      font-size: 40px;
+    }
+
+    .input_delivery_div::placeholder{
+      font-size: 40px;
+
+    }
+
+    .input_delivery_div select{
+      width: 101%;
+      font-size: 10px;
+      height: 100px;
+    }
+    .input_delivery_div select::placeholder{
+      font-size: 40px;
+    }
+    .input_delivery_div {
+      font-size: 50px;
+    }
+
     .input_mail{
       width: 100%;
+      
     }
-    .input_mail::placeholder, .input_delivery::placeholder, .input_adres::placeholder, .input_apart::placeholder, .input_index::placeholder, .input_number::placeholder{
+    .input_mail::placeholder, .input_adres::placeholder, .input_apart::placeholder, .input_index::placeholder, .input_number::placeholder{
       font-size: 40px;
     }
     ::placeholder{
@@ -1217,13 +1270,14 @@ header{
       height: 40px;
     }
     .checkbox_text{
+      
       margin: 0 auto;
       width: 100%;
       font-size: 40px;
       margin-top: 60px;
     }
     .input_imya, .input_surname{
-      width:95%;
+      width:98%;
       height: 100px;
       font-size: 40px;
       margin-top: 26px;
@@ -1297,9 +1351,14 @@ header{
     .text_total_price, .price_point{
       font-size: 40px;
     }
-    .back{
+    .back {
+      font-size: 40px;
       width: 100%;
       margin: 0 auto;
+    }
+
+    .back img{
+      width: 20px;
     }
     .total_text, .total_price, .text_step, .text_perevozki{
       font-size: 40px;
@@ -1313,7 +1372,83 @@ header{
       height: 190px;
       font-size: 30px;
     }
+
+    .brands_article p, .brands_article span, .brands_article{
+      font-size: 55px;
+      
+    }
+    .brands{
+      display: flex;
+      flex-direction: column;
+      align-items: center ;
+    }
+    .brands_img img{
+      width: 700px;
+    }
+    .brands_content h1, .brands_content p{
+      font-size: 60px;
+    }
+    .brands_header{ 
+      padding: 0 ;
+    }
+    .brands_content p{
+      font-size: 40px;
+    }
+    .contacts_container h1{
+      font-size: 100px;
+    }
+    .contacts_main .number_contact  {
+      height: 250px;
+      width: 100%
+      
+      
+    }
+
+    .contacts_main .number_contact2{
+      height: 250px;
+      width: 100%;
+
+    }
+    .number_contact p {
+      font-size: 65px;
+      padding: 25px;
+    }
+
+    .number_contact a {
+      font-size: 85px;
+    }
+
+    .number_contact2 p {
+      font-size: 65px;
+      padding: 5px;
+    }
+
+    .number_contact2 a {
+      font-size: 85px;
+    }
+
+    .nunpmber_contact3 p {
+      font-size: 65px;
+    }
+
+    .nunpmber_contact3 a {
+      font-size: 65px;
+    }
+    .feedback_container h1{
+      font-size: 80px;
+    }
+    .feedbacks{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .feedback_message p, .feedback_footer p{
+      font-size: 40px;
+    }
     
+    .right_content img {
+      width: 400px;
+    }
   }
   .product{
     list-style-type: none;
@@ -1369,44 +1504,7 @@ header{
     border: 0;
     color: #FFFFFF;
   }
-  .second_line{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  .third_line{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  
-  .fourth_line{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  
-  .fifth_line{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .item_price{
-    font-size: 19px;
-    padding-bottom: 30px;
-  }
-  .item_name{
-    font-size: 20px;
-    padding-bottom: 30px;
-  }
-  .sixth_line{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
+
   @media screen and (max-width:768px) {
     .catalogs{
       display: flex;
@@ -1642,9 +1740,9 @@ header{
         height: 90px;
       }
       .stars img {
-        width: 35px;
+        width: 55px;
       }
-      .feedback_message p, .feedback_footer p{
+      .feedback_message , .feedback_footer p{
         font-size: 26px;
       }
       .feedback_h1{

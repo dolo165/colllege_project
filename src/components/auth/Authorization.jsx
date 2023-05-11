@@ -96,7 +96,7 @@ import { useState } from 'react';
                     <a href="https://m.facebook.com/login/?locale2=ru_RU"><img src={facebook}alt="" width={50} height={50}/></a>
                 </div>
                 <div className="form_containery">
-                    <Link to='/authorization'><input className="input_login" type="submit" value="Войти"/></Link>
+                    <Link to='/registration'><input className="input_login" type="submit" value="Войти"/></Link>
                 </div>
                 <div className="formAnother_container">
                     <a href=''className='p'>Забыли пароль?</a>

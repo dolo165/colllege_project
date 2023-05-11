@@ -19,23 +19,25 @@ export default function Footer (props) {
             </div>
 
                 <p className='new_collection'>подписаться на обновления:</p>
+            <Link to='/'>
+                <div className='footer_follow' onSubmit={handleSubmit(onSubmit)}>
+                    <input className='footer_input'   placeholder='введите e-mail'
+                    type="text" 
+                    name="send"
+                    {...register("send", {required: "Параметр обязателен",
+                        pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: "Ваш email неправильный"
+                        }
+                    })}
 
-            <div className='footer_follow' onSubmit={handleSubmit(onSubmit)}>
-                <input className='footer_input'   placeholder='введите e-mail'
-                type="text" 
-                name="send"
-                {...register("send", {required: "Параметр обязателен",
-                    pattern: {
-                      value: /\S+@\S+\.\S+/,
-                      message: "Ваш email неправильный"
-                    }
-                })}
-
-            />
-            {errors.send && <span className="error" role="alert">{errors.send?.message}</span>} 
+                />
+                {errors.send && <span className="error" role="alert">{errors.send?.message}</span>} 
+                
+                    <input type='submit' placeholder='подписаться' className='footer_button' name="submit" value="Отправить" ></input>
+                </div>
+            </Link>
             
-                <input type='submit' placeholder='подписаться' className='footer_button' name="submit" value="Отправить" ></input>
-            </div>
             
 
             <p className='footer_reg'>регистрируясь вы соглашаетесь с нашими условиями</p>

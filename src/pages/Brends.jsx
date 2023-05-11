@@ -57,7 +57,7 @@ function Brends(props) {
                     <div className="brands_img">
                         <img src={bioderma} alt="" width={410} />
                     </div>
-                    <div className="third_brands_content">
+                    <div className="brands_content">
                         <h1 className='brands_header'>"Забота на первом месте."</h1>
                         <p className='brands_about'> 
                             <strong>BIODERMA</strong> - французская косметика для решения проблем и <br />
