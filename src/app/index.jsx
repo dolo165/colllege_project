@@ -11,6 +11,7 @@ import Contacts from "../pages/Contacts.jsx";
 import Brends from "../pages/Brends.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import Authorization from "../components/auth/Authorization.jsx";
+import Registration from "../components/auth/Registration.jsx";
 import Feedback from "../pages/Feedback.jsx";
 const router = createBrowserRouter([
   {
@@ -83,6 +84,16 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Authorization />
+        <Footer />
+      </div>
+    )
+  },
+  {
+    path: `/registration`,
+    element: (
+      <div>
+        <Header />
+        <Registration />
         <Footer />
       </div>
     )

@@ -7,6 +7,7 @@ const Basket = (props) => {
     const [box, setBox] = useContext(ContextBox)
     const [totalItems, setTotalItems] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [product, setProducts] = useState([])
   
     
 const allProducts = box.map((item, index) => {

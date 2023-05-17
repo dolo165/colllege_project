@@ -1,131 +1,109 @@
+import Email from './Email'
+import facebook from '../assets/facebookIcon.png';
+import apple from '../assets/appleIcon.png';
+import google from '../assets/googleIcon.png';
+import {auth, provider} from '../../app/firebase'
+import {signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
+import { useForm } from "react-hook-form";
+import React from 'react';
 import { Link } from 'react-router-dom'
-import rectangle from "../assets/Rectangle 108.png"
-import openEye from "../assets/eye.png"
-import {useForm} from "react-hook-form";
-import { createUserWithEmailAndPassword,sendEmailVerification     } from 'firebase/auth';
-import { auth, database } from '../../app/firebase'
-import { doc, setDoc } from "firebase/firestore";
+import { useState } from 'react';
 
-const Registration = (props) => {
-    const {register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = async data => {
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
-            sendEmailVerification(userCredential.user)
-            delete data.password;
-            delete data.cpassword;
-            await setDoc(doc(database, "users", data.email), data);
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
+function Authorization (props) {
+     const { register, handleSubmit, formState: { errors } } = useForm();
+     const onSubmit = async data =>{ console.log(data);}
+     console.log(errors)
+        const [login, setLogin] = useState('')
+        const [password, setPassword] = useState('')
+        const [error, setError] = useState(false)
     
-
-    console.log(errors)
-   
-
+        async function signInWithGoogle() {
+            try {
+                await signInWithPopup(auth, provider)
+                props.closeModal({ type: "modal", active:"false"})
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+        async function signIn(e) {
+            e.preventDefault()
+            try {
+                setError(false)
+                await signInWithEmailAndPassword(auth, login, password)
+            } catch(error) {
+                setError(true)
+            }
+        }
+    
+        function inputLogin(e) {
+            setLogin(e.target.value)
+        }
+    
+        function inputPassword(e) {
+            setPassword(e.target.value)
+        }
+    
     return (
         <div className="form-modal">
-            <div className="title-modal">Регистрация</div>
-            <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="form_container">
-                    <input className="input_name"
-                        type="text" 
-                        name="firstName" 
-                        placeholder="Имя" 
-                        
-                        {...register('firstName', {
-                            required: "Параметр обязателен", 
-                            maxLength: {
-                                value: 20,
-                                message: 'Ваше имя должно быть меньше 20 символов'
-                            }, 
-                            minLength: {
-                                value: 3,
-                                message: 'Ваше имя должно быть больше 3 символов'
-                            } 
-                             
-                        })}
-                        
-                    />
-                   
-                    {errors.firstName && <span className="error" role="alert">{errors.firstName?.message}</span>}
-                   
-                </div>
-                
-                <div className="form_container">
-                   
-                    <input className="input_email  "
-                        type="text" 
-                        name="email" 
-                        placeholder="Введите почту"
-                        {...register("email", {
-                            required: "Параметр обязателен",
-                            pattern: {
-                              value: /\S+@\S+\.\S+/,
-                              message: "Ваш email не подходит под нужный формат"
-                            }
-                        })}
-
-                    />
-                    {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
-                </div>
-                <div className="form_containers">
-                    
-                    <input className="input_password"
+            <div className="title-modal">Авторизация</div>
+            <div className='error' style={{
+                display: (error) ? 'block' : 'none',
+                color: 'red'
+            }}> 
+                Такого пользователя не существует, проверьте введеный логин и пароль 
+            </div>
+            <form onSubmit={signIn}>
+            <div className="form_containery">
+                   <input className='input_email'
+                       type="text" 
+                       name="email" 
+                       placeholder="Email"
+                       {...register("email", {
+                           required: "Параметр обязателен",
+                           pattern: {
+                             value: /\S+@\S+\.\S+/,
+                             message: "Ваш email не подходит под нужный формат"
+                           }
+                       })}
+                    onChange={inputLogin}
+                   />
+                   {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
+               </div>
+                <div className="form_containery">
+                <input className="input_password"
                         type="password" 
                         name="password" 
                         placeholder="Введите пароль"
                         {...register("password", {
                             required: "Параметр обязателен",
                             minLength: {
-                              value: 5,
-                              message: "Минимальная длина пароля 5 символов"
+                              value: 7,
+                              message: "Минимальная длина кода 7 символов"
                             }
                           })}
-                          
+                        onChange={inputPassword} 
                     />
-                    {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
-                    {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
+                  
+
+                {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
                 </div>
-                <div className="form_containers">
-                    <input className="input_password" 
-                        type="password" 
-                        name="cpassword" 
-                        placeholder="Подтвердите пароль"
-                        {...register("cpassword", {
-                            validate: (value) => {
-                                if (watch('password') != value) {
-                                    return "Ваши пароли не совпадают";
-                                }
-                            },
-                            required: 'Параметр обязателен'
-                        })}
-                    />
-                     {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
-                    {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
+                <div className="login">
+                    <button onClick={signInWithGoogle} style={{backgroundColor : 'transparent',border:"none"}}><img src={google}alt=""width={50} height={50}/></button>
+                    <img src={apple}alt="" width={38} height={44}/>
+                    
+                    <a href="https://m.facebook.com/login/?locale2=ru_RU"><img src={facebook}alt="" width={50} height={50}/></a>
                 </div>
-                <div className="formOne_container">
-                    <input type="checkbox" className="coco"></input>
-                    <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и <br /> распродажах</p>
-                </div>
-                <div className="formOne_container">
-                <input type="checkbox" className="coco"></input>
-                    <p className="quest_p">Запомнить меня</p>
-                </div>
-                <div className="form_container">
-                    <input className="input_login" type="submit" name="submit" value="Отправить"/>
+                <div className="form_containery">
+                    <Link to='/authorization'><input className="input_login" type="submit" value="Зарегистрироватся"/></Link>
                 </div>
                 <div className="formAnother_container">
-                    <Link to="/authorization" className='p' >Войти</Link>
-                </div>  
+                    <a href=''className='p'>Забыли пароль?</a>
+                </div>
             </form>
         </div>
     )
 
 };
 
-
-
-export default Registration
+export default Authorization;

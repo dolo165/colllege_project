@@ -78,7 +78,7 @@ const Header = (Props) => {
                         {user
                             ? (
                                 <div className='modal_icon'>
-                                    <Link to="/profile"><img src={person} alt="" width={40} height={40} /></Link>
+                                    <Link to="/authorization"><img src={person} alt="" width={40} height={40} /></Link>
                                 </div> 
                             )
                             :   (

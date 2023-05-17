@@ -3,66 +3,40 @@ import React, { useContext, useState } from 'react';
 import { ContextBox } from '../../App';
 import "./Busket.css"
 import {Link} from 'react-router-dom'
-const Busket = (props) => {
-  const [box, setBox] = useContext(ContextBox)
-  const [totalItems, setTotalItems] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+import React from 'react';
 
-  const allProducts = box.map((item, index) => {
+  const Busket = box.map((item, index) => {
     return (
-      <div className="bucketItem" key={index}>
-        <div className="tick">
-          <button>
-            <img src={tick} alt="" />
-          </button>
-        </div>
-        <div className="bucketPhoto">
-          <img className='busket-img' src={item.img} alt="" />
-        </div>
-        <div className="aboutProduct">
-          <div className="productName">
-            {item.name}
-          </div>
-          <div className="productInfo">
-            <div className="productPrice">
-              {item.priсe} dollar
-            </div>
-            <div className="productCounter">
-              <button className='decrease'>-</button>
-              <input className='count' type="text" value={1} />
-              <button className='increase'>+</button>
-            </div>
-            <div className="productPrice">
-              {item.price}
-            </div>
-          </div>
+      <div>
+        <h1>Cart</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Map through the cart items and render each row */}
+            {/* Replace `cartItems` with your actual cart items array */}
+            {cartItems.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>${item.price}</td>
+                <td>{item.quantity}</td>
+                <td>${item.price * item.quantity}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div>
+          <h3>Total: ${calculateTotal()}</h3>
+          <button>Checkout</button>
         </div>
       </div>
-    )
-
-  })
-
-  React.useEffect(() => {
-    let itemsCount = 0;
-    let totalPrice = 0;
-    for (let i = 0; i < box.length; i++) {
-      itemsCount += 1;
-      console.log(box[i].price)
-      totalPrice += Number(box[i].price);
-    }
-    setTotalItems(itemsCount);
-    setTotalPrice(totalPrice);
-  }, [box]);
-
-  return (
-    <>
-      <div className="cart-info">
-        <p>Total items: {totalItems}</p>
-        <p>Total price: {totalPrice} $</p>
-      </div>
-      {allProducts}
-    </>
-  );
-};
-
+    );
+  }
+  )  
 export default Busket;
