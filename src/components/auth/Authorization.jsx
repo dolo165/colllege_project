@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom'
-import rectangle from "../assets/Rectangle 108.png"
-import openEye from "../assets/eye.png"
 import {useForm} from "react-hook-form";
-import { createUserWithEmailAndPassword,sendEmailVerification } from 'firebase/auth';
-import { auth, database } from '../../app/firebase'
+import './Registration.css'
+import reg_image from '../../components/assets/reg_image.png'
+import { auth } from "../../Firebase";
+import { createUserWithEmailAndPassword ,sendEmailVerification   } from 'firebase/auth';
+import {signInWithGoogle} from '../../Firebase'
 import { doc, setDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { useReducer } from 'react'
+import { useAuthState } from "react-firebase-hooks/auth"
+import Button from "../../components/ui/Button"
+
 
 const Registration = (props) => {
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -12,30 +17,87 @@ const Registration = (props) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
             sendEmailVerification(userCredential.user)
-            delete data.password;
-            delete data.cpassword;
             await setDoc(doc(database, "users", data.email), data);
         } catch (error) {
             console.log(error)
         }
     }
 
-    
-
     console.log(errors)
-   
+// 
+const [modal, dispatch] = useReducer(reducer, {
+    active: false,
+    content: 'registration'
+});  
+const [user, loading, error] = useAuthState(auth);
 
-    return (
-        <div className="form-modal">
-            <div className="title-modal">Регистрация</div>
-            <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="form_container">
-                    <input className="input_name"
+function reducer(state, action) {
+    switch (action.type) {
+        case 'modal':
+            return {
+                ...state,
+                active: action.modal
+            };
+        case 'content':
+            return {
+                ...state,
+                content: action.content
+            };
+        default:
+            return state
+    }
+}
+
+const modalState = {
+    props: modal,
+    dispatch: dispatch,
+}
+
+async function openModal(content) {
+    await dispatch({type: 'content', content: content})
+    await dispatch({type: 'modal', modal: true})
+}
+const signOut = () => {
+    auth.signOut();
+};
+
+if (user) {
+    if (user.emailVerified){
+        return (
+            <div className="container_data">
+                <h1>Ваши данные</h1>
+                <div>Ваша почта: {user.email}</div>
+                <div onClick={signOut}>
+                    <Button text='Выйти с аккаунта' />
+                </div>
+            </div>
+        );
+        }else 
+        return (
+            <div className="container center-flex">
+                <h1>Профиль</h1>
+                <div>Чтобы войти вам нужно подтвердить почту</div>
+                <div>Ваша почта: {user.email}</div>
+                <div onClick={signOut}>
+                    <Button text='Выйти с аккаунта' />
+                </div>
+            </div>
+        );
+} else 
+return (
+    <div className='cc'>
+        <div className="reg_box">
+                <div className="auth_reg">
+                    <Link to='/registration'><h2 >Войти</h2></Link> 
+                    <Link to='/authorization'><h2 className="h2_reg">Регистрация</h2></Link>  
+                </div>
+            <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>         
+            <div className='name'>
+                <input 
                         type="text" 
-                        name="firstName" 
+                        name="fullname" 
                         placeholder="Имя" 
-                        
-                        {...register('firstName', {
+                        {...register('fullName', {
                             required: "Параметр обязателен", 
                             maxLength: {
                                 value: 20,
@@ -45,84 +107,62 @@ const Registration = (props) => {
                                 value: 3,
                                 message: 'Ваше имя должно быть больше 3 символов'
                             } 
-                             
-                        })}
-                        
-                    />
-                   
-                    {errors.firstName && <span className="error" role="alert">{errors.firstName?.message}</span>}
-                   
-                </div>
-                
-                <div className="form_container">
-                   
-                    <input className="input_email  "
-                        type="text" 
-                        name="email" 
-                        placeholder="Введите почту"
-                        {...register("email", {
-                            required: "Параметр обязателен",
-                            pattern: {
-                              value: /\S+@\S+\.\S+/,
-                              message: "Ваш email не подходит под нужный формат"
-                            }
-                        })}
-
-                    />
-                    {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
-                </div>
-                <div className="form_containers">
-                    
-                    <input className="input_password"
-                        type="password" 
-                        name="password" 
-                        placeholder="Введите пароль"
-                        {...register("password", {
-                            required: "Параметр обязателен",
-                            minLength: {
-                              value: 5,
-                              message: "Минимальная длина пароля 5 символов"
-                            }
-                          })}
-                          
-                    />
-                    {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
-                    {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
-                </div>
-                <div className="form_containers">
-                    <input className="input_password" 
-                        type="password" 
-                        name="cpassword" 
-                        placeholder="Подтвердите пароль"
-                        {...register("cpassword", {
-                            validate: (value) => {
-                                if (watch('password') != value) {
-                                    return "Ваши пароли не совпадают";
-                                }
-                            },
-                            required: 'Параметр обязателен'
                         })}
                     />
-                     {/* <img src={closeEye} alt="" width={25} height = {25}/> */}
-                    {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
-                </div>
-                <div className="formOne_container">
-                    <input type="checkbox" className="coco"></input>
-                    <p className="quest_p">Да,я согласен(а) получить информацию о<br /> новых поступлениях , акциях и <br /> распродажах</p>
-                </div>
-                <div className="formOne_container">
-                <input type="checkbox" className="coco"></input>
-                    <p className="quest_p">Запомнить меня</p>
-                </div>
-                <div className="form_container">
-                    <input className="input_login" type="submit" name="submit" value="Отправить"/>
-                </div>
-                <div className="formAnother_container">
-                    <Link to="/authorization" className='p' >Войти</Link>
-                </div>  
+                    {errors.fullName && <span className="error" role="alert">{errors.fullName?.message}</span>}
+            </div>
+            <div className='e-mail'>
+                <input type="text" placeholder='Введите e-mail'
+                {...register("email", {
+                    required: "Обьязательно",
+                    pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Ваш email не подходит под нужный формат"
+                    }
+                })}
+                />
+                {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
+            </div>
+            <div className='new_password'>
+                <input type="password" name="password" placeholder='Введите пароль'
+                {...register("password", {
+                    required: "Параметр обязателен",
+                    minLength: {
+                    value: 5,
+                    message: "Минимальная длина пароля 5 символов"
+                    }
+                })}
+                />
+                {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
+            </div>
+            <div className='password'>
+                <input type="password" name="cpassword" placeholder='Введите пароль еще раз'
+                {...register("cpassword", {
+                    validate: (value) => {
+                        if (watch('password') != value) {
+                            return "Ваши пароли не совпадают";
+                        }
+                    },
+                    required: 'Параметр обязателен'
+                })}
+                />
+                {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
+            </div>
+            <div className="Sign_in">
+                    <label htmlFor="submit"></label>
+                    <input className="Sign_in_input" type="submit" name="submit" value="Зарегестрироваться"/>
+            </div>
+            <div className='remember'>
+                        <input  className="remember_inp" type="checkbox" />
+                        <h5>Запомнить меня</h5>
+                    </div>
             </form>
         </div>
-    )
+        <div className="img_box">
+            <img src={reg_image} alt="" />
+        </div>
+    </div>
+)
 
 };
 

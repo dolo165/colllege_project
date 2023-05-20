@@ -7,6 +7,9 @@ function Feedback(props) {
     return (
         <div>
             <div className="feedback_container">
+            <div className="brands_article">
+                    <Link to='/'><p>Главная</p> </Link>/<Link to='/feedback'><span>Отзывы</span> </Link>
+                 </div>
                 <h1 className='feedback_h1'>Отзывы</h1>
                 <div className="feedback_content">
                     

@@ -4,7 +4,7 @@ import Footer from '../components/footer/Footer'
 import { useParams } from "react-router-dom";
 import { useEffect, useContext } from "react";
 import { collection, query, getDocs, where } from "firebase/firestore";
-import { database } from "../app/firebase";
+import { database } from "../firebase";
 import { useState } from "react";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -68,11 +68,11 @@ const Category = (props) => {
                 </Card.Body>
                 {/* <Card.Footer> */}
                 <small className="text-muted"><span className="price-product">{product.price}</span>$</small>
-                    <Link to='/basket'>
+                    {/* <Link to='/basket'> */}
                         <div className="add_button">
-                            <button>Добавить в корзину</button>
+                            <button onClick={addToCart}>Добавить в корзину</button>
                         </div>  
-                    </Link>
+                    {/* </Link> */}
                 {/* </Card.Footer> */}
             </Card>
             </Link>
@@ -81,9 +81,12 @@ const Category = (props) => {
     })
 
     return (
-        <div>
+        <div className="card_group">
             <Header />
-            <div className="container">
+            <div >
+            <div className="brands_article">
+                    <Link to='/'><p>Главная</p> </Link>/<Link to='/catalog'><span>Каталог</span> </Link>/<Link to='#'><span>Продукты</span> </Link>
+                 </div>
                 {/* Страница категории */}
                 <CardGroup>
                     {viewProducts}

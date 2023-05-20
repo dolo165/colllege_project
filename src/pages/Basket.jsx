@@ -59,6 +59,9 @@ const allProducts = box.map((item, index) => {
   return (
     <>
       <div className="cart-info">
+        <div className="brands_article">
+            <Link to='/'><p>Главная</p> </Link>/<Link to='/basket'><span>Корзина</span> </Link>
+          </div>
         <p>Total items: {totalItems}</p>
         <p>Total price: {totalPrice} $</p>
       </div>

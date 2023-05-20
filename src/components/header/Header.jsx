@@ -1,17 +1,12 @@
 import icon from '../assets/Group.png'
 import mall from '../assets/local_mall.png'
-import search from '../assets/search.png'
 import person from '../assets/person.png'
-import navigate from '../assets/navigate_before.png'
-import Authorization from '../auth/Authorization'
-import Button from "../ui/Button";
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ModalContext } from '../../App'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '../../app/firebase'
-import Hamburger from 'hamburger-react'
-import { useState } from 'react'
+import { auth } from '../../firebase'
+import BurgerMenu from '../header/BurgerMenu'
 
 const Header = (Props) => {
     const [user] = useAuthState(auth)
@@ -40,13 +35,6 @@ const Header = (Props) => {
         <header>
             <nav className='container_nav'>
 
-            <Hamburger onToggle={toggled => {
-                if (toggled) {
-                    push
-                } else {
-            
-                }
-            }} />
                 <div className="menu">
                   <nav className='nav'>
                     <ul className='header_ul'>
@@ -71,28 +59,14 @@ const Header = (Props) => {
                             <Link  to="/contacts"><a className='header_li' href="">Контакты</a></Link>
                         </ul>
                 <ul className='header_assets'>
-                    {/* <li className='header_li'>
-                        <img src={search} alt=""  width={42} height={42}/>
-                    </li> */}
                     <li className='header_li'>
-                        {user
-                            ? (
-                                <div className='modal_icon'>
-                                    <Link to="/authorization"><img src={person} alt="" width={40} height={40} /></Link>
-                                </div> 
-                            )
-                            :   (
-                                <div className='modal_icon' onClick={openModal}>
-                                    <img src={person} alt="" width={42} height={42} />
-                                </div> 
-                            )
-                        }
-                        
+                        <Link to="/registration"><img src={person} alt="" width={40} height={40} /></Link>  
                     </li>
                     <li className='header_li'>
                             <Link to="/basket"><img src={mall} alt="" width={29} height={32} /></Link>
                     </li>
                 </ul>
+                <BurgerMenu />
             </nav>
             {/* <Modal modal={modalState}/> */}
 

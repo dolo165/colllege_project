@@ -1,5 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from '../pages/Main.jsx'
+import Home from '../pages/Home'
 import Catalog from '../pages/Catalog'
 import ProductPage from '../pages/ProductPage'
 import Products from "../pages/Products.jsx"
@@ -12,6 +13,7 @@ import Brends from "../pages/Brends.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import Authorization from "../components/auth/Authorization.jsx";
 import Registration from "../components/auth/Registration.jsx";
+import CreateNewPsw from "../components/auth/CreateNewPsw";
 import Feedback from "../pages/Feedback.jsx";
 const router = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     element: (
       <div>
         <Header />
-        <Main />
+        <Home/>
         <Footer />
       </div>
       
@@ -84,7 +86,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Authorization />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   },
@@ -94,7 +96,17 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Registration />
-        <Footer />
+        {/* <Footer /> */}
+      </div>
+    )
+  },
+  {
+    path: `/createnewpassword`,
+    element: (
+      <div>
+        {/* <Header /> */}
+        <CreateNewPsw />
+        {/* <Footer /> */}
       </div>
     )
   },

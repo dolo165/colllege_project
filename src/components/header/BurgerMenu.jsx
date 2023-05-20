@@ -1,6 +1,7 @@
 import { useState } from 'react'; 
 import './BurgerMenu.css'; 
- 
+import close from '../assets/burger_close.png';
+
 function BurgerMenu() { 
   const [isOpen, setIsOpen] = useState(false); 
  
@@ -14,23 +15,25 @@ function BurgerMenu() {
         <div className={`burger-menu-line ${isOpen ? 'open' : ''}`}></div> 
       </div> 
       <div className={`burger-menu-content ${isOpen ? 'open' : ''}`}> 
-        <div className="btnclose" onClick={handleToggle}>X</div> 
+        <div className="btnclose" onClick={handleToggle}>
+          <img src={close} alt="" />
+        </div> 
         <ul className="burger-menu-list"> 
-          <li className="burger-menu-item"><a href="/catalog" className="burger-menu-link">Каталог</a></li> 
-          <li className="burger-menu-item has-subheader"> 
-            <div className="burger-menu-link"> 
-              Доставки 
-              <div className="burger-menu-subheader-icon"></div> 
-            </div> 
-            <div className="burger-menu-subheader"> 
-              <ul className="burger-menu-subheader-list"> 
-                <li className="burger-menu-subheader-item"><a href="" className="burger-menu-subheader-link">Каталог</a></li> 
-                <li className="burger-menu-subheader-item"><a href="#" className="burger-menu-subheader-link">Доставка</a></li> 
-              </ul> 
-            </div> 
+          <li className="burger-menu-item">
+            <a href="/" className="burger-menu-link">Главная</a>
           </li> 
-          <li className="burger-menu-item"><a href="#" className="burger-menu-link">Акции</a></li> 
-          <li className="burger-menu-item"><a href="#" className="burger-menu-link">Под заказ</a></li> 
+          <li className="burger-menu-item">
+            <a href="/catalog" className="burger-menu-link">Каталог</a>
+          </li>
+          <li className="burger-menu-item">
+            <a href="/brands" className="burger-menu-link">Бренды</a>
+          </li>
+          <li className="burger-menu-item">
+            <a href="/feedback" className="burger-menu-link">Отзывы</a>
+          </li>
+          <li className="burger-menu-item">
+            <a href="/delivery" className="burger-menu-link">Доставка</a>
+          </li>
         </ul> 
       </div> 
     </div> 

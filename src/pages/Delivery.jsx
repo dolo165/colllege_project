@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
 function Delivery(props) {
     return (
         <div>
+            <div className="brands_article">
+                    <Link to='/'><p>Главная</p> </Link>/<Link to='/delivery'><span>Доставка</span> </Link>
+                 </div>
             <div className='basket_container'>
 
         <div className='menu'>

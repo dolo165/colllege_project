@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { collection, query, getDocs} from "firebase/firestore";
-import { database } from "../app/firebase";
+import { database } from "../firebase";
 import {useState, useEffect} from "react"
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';

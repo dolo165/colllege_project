@@ -42,7 +42,7 @@ const Profile = (props) => {
     } else 
         return (
             <div className="container center-flex">
-                Главная страница
+                {/* Главная страница */}
                 <div>Пожалуйста потвердите почту умоляю{user.displayName}</div>
                 <div onClick={signOut}>
                     <Button text='Выйти с аккаунта' />

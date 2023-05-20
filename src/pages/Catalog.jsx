@@ -4,11 +4,11 @@ import {useState, useEffect} from "react"
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { collection, query, getDocs } from "firebase/firestore";
-import { database } from "../app/firebase";
-import {Link} from 'react-router-dom'
+import { database } from "../firebase";
+import {Link, useParams} from 'react-router-dom'
 
   const Catalog = (props) => {
-     const [product, setProducts] = useState([])
+     const id = useParams()
        const [categories, setCategories] = useState([])
 
        useEffect(() => {
@@ -47,7 +47,9 @@ import {Link} from 'react-router-dom'
 
     const showAllCategory = categories.map((category, index) => {
         return (
+            
             <Link to={`/category/${category.id}`}>
+                
                 <Card key={index}>
                     <Card.Img variant="top" src={category?.image} />
                     <Card.Body>
@@ -64,14 +66,16 @@ import {Link} from 'react-router-dom'
     return (
         <div>
             <Header />
-            <div>
                 <div>
-                    {/*showAllProducts*/}
-                    <CardGroup>
-                        {showAllCategory}
-                    </CardGroup>
+                    <div>
+                    <div className="brands_article">
+                        <Link to='/'><p>Главная</p> </Link>/<Link to='/catalog'><span>Каталог</span> </Link>
+                    </div>
+                        <CardGroup>
+                            {showAllCategory}
+                        </CardGroup>
+                    </div>
                 </div>
-            </div>
             <Footer />
         </div>
     )
