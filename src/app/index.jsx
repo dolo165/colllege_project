@@ -10,6 +10,7 @@ import Basket from "../pages/Basket.jsx";
 import Category from "../pages/Category.jsx";
 import Contacts from "../pages/Contacts.jsx";
 import Brends from "../pages/Brends.jsx";
+import ProductView from "../pages/ProductView.jsx"
 import Footer from "../components/footer/Footer.jsx";
 import Authorization from "../components/auth/Authorization.jsx";
 import Registration from "../components/auth/Registration.jsx";
@@ -79,6 +80,26 @@ const router = createBrowserRouter([
           <Footer />
         </div>
       )
+      },
+      {
+        path: `/productView`,
+        element: (
+          <div>
+         
+            <ProductView />
+          
+          </div>
+        )
+      },
+      {
+        path: `/productView/:productView`,
+        element: (
+          <div>
+         
+            <ProductView />
+          
+          </div>
+        )
       },
   {
     path: `/authorization`,

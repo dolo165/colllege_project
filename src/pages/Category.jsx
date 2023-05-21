@@ -69,9 +69,11 @@ const Category = (props) => {
                 {/* <Card.Footer> */}
                 <small className="text-muted"><span className="price-product">{product.price}</span>$</small>
                     {/* <Link to='/basket'> */}
+                    <Link to={`/productView/${product.id}`}>
                         <div className="add_button">
-                            <button onClick={addToCart}>Добавить в корзину</button>
+                            <button>Добавить в корзину</button>
                         </div>  
+                    </Link>
                     {/* </Link> */}
                 {/* </Card.Footer> */}
             </Card>

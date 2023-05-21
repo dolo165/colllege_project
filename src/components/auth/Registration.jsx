@@ -1,14 +1,15 @@
 import {useForm} from "react-hook-form";
 import './Authorization.css'
 import reg_image from '../../components/assets/reg_image.png'
-import googleIcon from '../../components/assets/googleIcon.png'
+import google from '../assets/googleIcon.png';
 import apple from '../../components/assets/appleIcon.png'
+import {auth, provider} from '../../app/firebase'
 import facebook from '../../components/assets/facebookIcon.png'
-import {signInWithGoogle} from '../../Firebase'
+import {signInWithPopup,signInWithEmailAndPassword} from 'firebase/auth'
 import { Link } from "react-router-dom";
 
 const Authorization = (props) => {
-
+  
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = async data => {
@@ -16,7 +17,31 @@ const Authorization = (props) => {
     }
 
     console.log(errors)
-    
+    async function signInWithGoogle() {
+        try {
+            await signInWithPopup(auth, provider)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    async function signIn(e) {
+        e.preventDefault()
+        try {
+            setError(false)
+            await signInWithEmailAndPassword(auth, login, password)
+        } catch(error) {
+            setError(true)
+        }
+    }
+
+    function inputLogin(e) {
+        setLogin(e.target.value)
+    }
+
+    function inputPassword(e) {
+        setPassword(e.target.value)
+    }
 
 
     return (
@@ -71,7 +96,7 @@ const Authorization = (props) => {
                     </div>
                     <div className='social_net'>
                         <div>
-                            <img onClick={signInWithGoogle} src={googleIcon} alt="" />
+                        <button onClick={signInWithGoogle} style={{backgroundColor : 'transparent',border:"none"}}><img src={google}alt=""width={50} height={50}/></button>
                         </div>
                         <div>
                             <img src={apple} alt="" />

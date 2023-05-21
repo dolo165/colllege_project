@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { collection, query, getDocs} from "firebase/firestore";
-import { database } from "../firebase";
+import { database } from "../app/firebase";
 import {useState, useEffect} from "react"
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -19,6 +19,7 @@ function ProductPage(props) {
     async function getData() {
         const q = query(collection(database, "category"));
         const querySnapshot = await getDocs(q);
+        
         let category = []
         querySnapshot.forEach((doc) => {
            category.push({...doc.data(), id: doc.id})
