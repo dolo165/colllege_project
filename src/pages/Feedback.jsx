@@ -2,14 +2,15 @@ import React from 'react';
 import woman1 from '../assets/woman1.png'
 import woman2 from '../assets/woman2.png'
 import star from '../assets/star.png'
-
+import { Link } from 'react-router-dom';
 function Feedback(props) {
     return (
         <div>
-            <div className="feedback_container">
             <div className="brands_article">
                     <Link to='/'><p>Главная</p> </Link>/<Link to='/feedback'><span>Отзывы</span> </Link>
                  </div>
+            <div className="feedback_container">
+            
                 <h1 className='feedback_h1'>Отзывы</h1>
                 <div className="feedback_content">
                     

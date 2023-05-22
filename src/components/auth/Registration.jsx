@@ -51,7 +51,7 @@ const Authorization = (props) => {
                     <Link to='/profile'><h2 className="h2_auth">Войти</h2></Link> 
                     <Link to='/authorization'><h2>Регистрация</h2></Link>  
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={{signIn}}>
                 <div className='e-mail'>
                     <input type="text" placeholder='Введите e-mail'
                     {...register("email", {
